@@ -1,0 +1,1 @@
+GEN_CSRCS += _biaopan1_200x200.c _Ellipse_alpha_26x30.c _watchdight3_alpha_61x68.c _watchdight2_alpha_51x57.c _watchdight1_alpha_56x59.c _MDLBG_alpha_240x280.c _foot16x16_alpha_20x20.c _KLL16x16_alpha_20x20.c _heart16x16_alpha_20x20.c
