@@ -18,35 +18,90 @@ extern "C" {
 typedef struct
 {
   
-	lv_obj_t *screen;
-	bool screen_del;
-	lv_obj_t *screen_cont_1;
-	lv_obj_t *screen_analog_clock_1;
-	lv_obj_t *screen_img_2;
-	lv_obj_t *screen_img_3;
-	lv_obj_t *screen_img_4;
-	lv_obj_t *screen_img_5;
-	lv_obj_t *screen_1;
-	bool screen_1_del;
-	lv_obj_t *screen_1_cont_2;
-	lv_obj_t *screen_1_img_1;
-	lv_obj_t *screen_1_digital_clock_1;
-	lv_obj_t *screen_1_datetext_1;
+	lv_obj_t *screen_1_home;
+	bool screen_1_home_del;
+	lv_obj_t *screen_1_home_analog_clock_1;
+	lv_obj_t *screen_1_home_img_2;
+	lv_obj_t *screen_1_home_img_3;
+	lv_obj_t *screen_1_home_img_4;
+	lv_obj_t *screen_1_home_img_5;
+	lv_obj_t *screen_1_home_cont_slide;
+	lv_obj_t *screen_1_home_btn_3;
+	lv_obj_t *screen_1_home_btn_3_label;
+	lv_obj_t *screen_1_home_btn_2;
+	lv_obj_t *screen_1_home_btn_2_label;
+	lv_obj_t *screen_1_home_btn_1;
+	lv_obj_t *screen_1_home_btn_1_label;
+	lv_obj_t *screen_1_home_img_8;
+	lv_obj_t *screen_1_home_img_10;
+	lv_obj_t *screen_1_home_img_9;
+	lv_obj_t *screen_1_home_img_7;
+	lv_obj_t *screen_1_home_img_6;
+	lv_obj_t *screen_1_home_label_1;
+	lv_obj_t *screen_1_home_label_2;
+	lv_obj_t *screen_1_home_cont_shadow;
 	lv_obj_t *screen_2;
 	bool screen_2_del;
-	lv_obj_t *screen_2_cont_1;
-	lv_obj_t *screen_2_label_2;
-	lv_obj_t *screen_2_label_3;
-	lv_obj_t *screen_2_img_2;
-	lv_obj_t *screen_2_img_3;
+	lv_obj_t *screen_2_img_1;
+	lv_obj_t *screen_2_digital_clock_1;
+	lv_obj_t *screen_2_datetext_1;
+	lv_obj_t *screen_2_cont_3;
+	lv_obj_t *screen_2_btn_3;
+	lv_obj_t *screen_2_btn_3_label;
+	lv_obj_t *screen_2_btn_2;
+	lv_obj_t *screen_2_btn_2_label;
+	lv_obj_t *screen_2_btn_1;
+	lv_obj_t *screen_2_btn_1_label;
+	lv_obj_t *screen_2_img_6;
+	lv_obj_t *screen_2_img_5;
 	lv_obj_t *screen_2_img_4;
-	lv_obj_t *screen_2_arc_2;
-	lv_obj_t *screen_2_arc_4;
-	lv_obj_t *screen_2_arc_5;
+	lv_obj_t *screen_2_img_3;
+	lv_obj_t *screen_2_img_2;
+	lv_obj_t *screen_2_label_2;
 	lv_obj_t *screen_2_label_1;
-	lv_obj_t *screen_2_label_4;
-	lv_obj_t *screen_2_label_5;
-	lv_obj_t *screen_2_label_6;
+	lv_obj_t *screen_2_cont_4;
+	lv_obj_t *screen_3;
+	bool screen_3_del;
+	lv_obj_t *screen_3_label_2;
+	lv_obj_t *screen_3_label_3;
+	lv_obj_t *screen_3_img_2;
+	lv_obj_t *screen_3_img_3;
+	lv_obj_t *screen_3_img_4;
+	lv_obj_t *screen_3_arc_2;
+	lv_obj_t *screen_3_arc_4;
+	lv_obj_t *screen_3_arc_5;
+	lv_obj_t *screen_3_label_1;
+	lv_obj_t *screen_3_label_4;
+	lv_obj_t *screen_3_label_5;
+	lv_obj_t *screen_3_label_6;
+	lv_obj_t *screen_3_cont_1;
+	lv_obj_t *screen_3_btn_3;
+	lv_obj_t *screen_3_btn_3_label;
+	lv_obj_t *screen_3_btn_2;
+	lv_obj_t *screen_3_btn_2_label;
+	lv_obj_t *screen_3_btn_1;
+	lv_obj_t *screen_3_btn_1_label;
+	lv_obj_t *screen_3_img_9;
+	lv_obj_t *screen_3_img_8;
+	lv_obj_t *screen_3_img_7;
+	lv_obj_t *screen_3_img_6;
+	lv_obj_t *screen_3_img_5;
+	lv_obj_t *screen_3_label_8;
+	lv_obj_t *screen_3_label_7;
+	lv_obj_t *screen_3_cont_2;
+	lv_obj_t *top_lap;
+	bool top_lap_del;
+	lv_obj_t *top_lap_cont_4;
+	lv_obj_t *top_lap_cont_5;
+	lv_obj_t *top_lap_cont_2;
+	lv_obj_t *top_lap_slider_1;
+	lv_obj_t *top_lap_cont_3;
+	lv_obj_t *top_lap_img_1;
+	lv_obj_t *under;
+	bool under_del;
+	lv_obj_t *under_cont_1;
+	lv_obj_t *under_cont_2;
+	lv_obj_t *under_img_1;
 }lv_ui;
 
 typedef void (*ui_setup_scr_t)(lv_ui * ui);
@@ -70,26 +125,57 @@ void init_keyboard(lv_ui *ui);
 extern lv_ui guider_ui;
 
 
-void setup_scr_screen(lv_ui *ui);
-void setup_scr_screen_1(lv_ui *ui);
+void setup_scr_screen_1_home(lv_ui *ui);
 void setup_scr_screen_2(lv_ui *ui);
+void setup_scr_screen_3(lv_ui *ui);
+void setup_scr_top_lap(lv_ui *ui);
+void setup_scr_under(lv_ui *ui);
 
 LV_IMG_DECLARE(_biaopan1_200x200);
 LV_IMG_DECLARE(_Ellipse_alpha_26x30);
 LV_IMG_DECLARE(_watchdight3_alpha_61x68);
 LV_IMG_DECLARE(_watchdight2_alpha_51x57);
 LV_IMG_DECLARE(_watchdight1_alpha_56x59);
-LV_IMG_DECLARE(_MDLBG_alpha_240x280);
+LV_IMG_DECLARE(_zhengdong_0_alpha_30x30);
+LV_IMG_DECLARE(_mianti_0_alpha_30x30);
+LV_IMG_DECLARE(_BT32_alpha_30x30);
+LV_IMG_DECLARE(_copesss_alpha_30x30);
+LV_IMG_DECLARE(_weater32x32_alpha_30x30);
+LV_IMG_DECLARE(_MDLBG_alpha_179x220);
+LV_IMG_DECLARE(_zhengdong_0_alpha_30x30);
+LV_IMG_DECLARE(_mianti_0_alpha_30x30);
+LV_IMG_DECLARE(_BT32_alpha_30x30);
+LV_IMG_DECLARE(_copesss_alpha_30x30);
+LV_IMG_DECLARE(_weater32x32_alpha_30x30);
 LV_IMG_DECLARE(_foot16x16_alpha_20x20);
 LV_IMG_DECLARE(_KLL16x16_alpha_20x20);
 LV_IMG_DECLARE(_heart16x16_alpha_20x20);
+LV_IMG_DECLARE(_zhengdong_0_alpha_30x30);
+LV_IMG_DECLARE(_mianti_0_alpha_30x30);
+LV_IMG_DECLARE(_BT32_alpha_30x30);
+LV_IMG_DECLARE(_copesss_alpha_30x30);
+LV_IMG_DECLARE(_weater32x32_alpha_30x30);
+
+LV_IMG_DECLARE(_taiwan_50x50);
+
+LV_IMG_DECLARE(_nfc_50x50);
+
+LV_IMG_DECLARE(_BT32_50x50);
+
+LV_IMG_DECLARE(_liangdu_47x47);
+
+LV_IMG_DECLARE(_location_50x50);
+LV_IMG_DECLARE(_power_over_alpha_50x50);
+
+LV_IMG_DECLARE(_nfc_50x50);
+LV_IMG_DECLARE(_ZNZBG_alpha_100x100);
 
 LV_FONT_DECLARE(lv_font_montserratMedium_12)
-LV_FONT_DECLARE(lv_font_montserratMedium_25)
 LV_FONT_DECLARE(lv_font_montserratMedium_16)
+LV_FONT_DECLARE(lv_font_SourceHanSerifSC_Regular_16)
+LV_FONT_DECLARE(lv_font_montserratMedium_25)
 LV_FONT_DECLARE(lv_font_interttf_82)
 LV_FONT_DECLARE(lv_font_interttf_28)
-LV_FONT_DECLARE(lv_font_SourceHanSerifSC_Regular_16)
 
 
 #ifdef __cplusplus

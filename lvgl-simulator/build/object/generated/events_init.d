@@ -247,7 +247,9 @@ build/object/generated/events_init.o: \
  d:\2stm32file_2025\0lixin\lvgl\biaopan_fuxian\biaopan_design\lvgl\src\misc\lv_txt.h \
  d:\2stm32file_2025\0lixin\lvgl\biaopan_fuxian\biaopan_design\lvgl\src\draw\lv_draw.h \
  d:\2stm32file_2025\0lixin\lvgl\biaopan_fuxian\biaopan_design\lvgl\src/extra/widgets/video/lv_video.h \
- d:\2stm32file_2025\0lixin\lvgl\biaopan_fuxian\biaopan_design\lvgl\src\lvgl.h
+ d:\2stm32file_2025\0lixin\lvgl\biaopan_fuxian\biaopan_design\lvgl\src\lvgl.h \
+ d:\2stm32file_2025\0lixin\lvgl\biaopan_fuxian\biaopan_design\custom\custom.h \
+ d:\2stm32file_2025\0lixin\lvgl\biaopan_fuxian\biaopan_design\generated\gui_guider.h
 
 d:\2stm32file_2025\0lixin\lvgl\biaopan_fuxian\biaopan_design\generated\events_init.h:
 
@@ -744,3 +746,7 @@ d:\2stm32file_2025\0lixin\lvgl\biaopan_fuxian\biaopan_design\lvgl\src\draw\lv_dr
 d:\2stm32file_2025\0lixin\lvgl\biaopan_fuxian\biaopan_design\lvgl\src/extra/widgets/video/lv_video.h:
 
 d:\2stm32file_2025\0lixin\lvgl\biaopan_fuxian\biaopan_design\lvgl\src\lvgl.h:
+
+d:\2stm32file_2025\0lixin\lvgl\biaopan_fuxian\biaopan_design\custom\custom.h:
+
+d:\2stm32file_2025\0lixin\lvgl\biaopan_fuxian\biaopan_design\generated\gui_guider.h:

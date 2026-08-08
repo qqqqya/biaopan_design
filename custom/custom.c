@@ -14,7 +14,7 @@
 #include <stdio.h>
 #include "lvgl.h"
 #include "custom.h"
-
+uint8_t screen_index = 0;
 /*********************
  *      DEFINES
  *********************/

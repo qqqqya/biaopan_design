@@ -23,11 +23,11 @@ void clock_count(int *hour, int *min, int *sec);
 #endif
 
 
-void screen_analog_clock_1_timer(lv_timer_t *timer);
-void screen_1_digital_clock_1_timer(lv_timer_t *timer);
-void screen_1_datetext_1_event_handler(lv_event_t *e);
-void screen_1_datetext_1_calendar_event_handler(lv_event_t *e);
-void screen_1_datetext_1_init_calendar(lv_obj_t *obj, char * s);
+void screen_1_home_analog_clock_1_timer(lv_timer_t *timer);
+void screen_2_digital_clock_1_timer(lv_timer_t *timer);
+void screen_2_datetext_1_event_handler(lv_event_t *e);
+void screen_2_datetext_1_calendar_event_handler(lv_event_t *e);
+void screen_2_datetext_1_init_calendar(lv_obj_t *obj, char * s);
 
 #ifdef __cplusplus
 }

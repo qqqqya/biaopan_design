@@ -16,7 +16,9 @@ extern "C" {
 #include "gui_guider.h"
 
 void custom_init(lv_ui *ui);
+// uint8_t screen_index = 0;
 
+extern uint8_t screen_index;
 #ifdef __cplusplus
 }
 #endif

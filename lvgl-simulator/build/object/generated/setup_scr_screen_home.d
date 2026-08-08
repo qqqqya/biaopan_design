@@ -1,5 +1,5 @@
-build/object/generated/setup_scr_screen.o: \
- d:\2stm32file_2025\0lixin\lvgl\biaopan_fuxian\biaopan_design\generated\setup_scr_screen.c \
+build/object/generated/setup_scr_screen_home.o: \
+ d:\2stm32file_2025\0lixin\lvgl\biaopan_fuxian\biaopan_design\generated\setup_scr_screen_home.c \
  d:\2stm32file_2025\0lixin\lvgl\biaopan_fuxian\biaopan_design\lvgl\lvgl.h \
  d:\2stm32file_2025\0lixin\lvgl\biaopan_fuxian\biaopan_design\lvgl\src/misc/lv_log.h \
  d:\2stm32file_2025\0lixin\lvgl\biaopan_fuxian\biaopan_design\lvgl\src\lv_conf_internal.h \
