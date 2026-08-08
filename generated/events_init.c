@@ -16,6 +16,15 @@
 #endif
 
 #include "custom.h"
+bool screen_1_home_btn_1_is_click = 0;
+bool screen_1_home_btn_2_is_click = 0;
+bool screen_1_home_btn_3_is_click = 0;
+bool screen_2_btn_1_is_click = 0;
+bool screen_2_btn_2_is_click = 0;
+bool screen_2_btn_3_is_click = 0;
+bool screen_3_btn_1_is_click = 0;
+bool screen_3_btn_2_is_click = 0;
+bool screen_3_btn_3_is_click = 0;
 
 static void screen_1_home_event_handler (lv_event_t *e)
 {
@@ -61,6 +70,78 @@ static void screen_1_home_event_handler (lv_event_t *e)
     }
 }
 
+static void screen_1_home_btn_3_event_handler (lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    switch (code) {
+    case LV_EVENT_CLICKED:
+    {
+        if(screen_1_home_btn_3_is_click) {
+            screen_1_home_btn_3_is_click = 0;
+            lv_obj_set_style_img_recolor_opa(guider_ui.screen_1_home_img_8, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+            lv_obj_set_style_img_recolor(guider_ui.screen_1_home_img_8, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);
+            lv_obj_set_style_bg_color(guider_ui.screen_1_home_btn_3, lv_color_hex(0x5a5a5a), LV_PART_MAIN|LV_STATE_DEFAULT);
+        } else {
+            screen_1_home_btn_3_is_click = 1;
+            lv_obj_set_style_img_recolor_opa(guider_ui.screen_1_home_img_8, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
+            lv_obj_set_style_img_recolor(guider_ui.screen_1_home_img_8, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);
+            lv_obj_set_style_bg_color(guider_ui.screen_1_home_btn_3, lv_color_hex(0xff6500), LV_PART_MAIN|LV_STATE_DEFAULT);
+        }
+        break;
+    }
+    default:
+        break;
+    }
+}
+
+static void screen_1_home_btn_2_event_handler (lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    switch (code) {
+    case LV_EVENT_CLICKED:
+    {
+        if(screen_1_home_btn_2_is_click) {
+            screen_1_home_btn_2_is_click = 0;
+            lv_obj_set_style_img_recolor_opa(guider_ui.screen_1_home_img_9, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+            lv_obj_set_style_img_recolor(guider_ui.screen_1_home_img_9, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);
+            lv_obj_set_style_bg_color(guider_ui.screen_1_home_btn_2, lv_color_hex(0x5a5a5a), LV_PART_MAIN|LV_STATE_DEFAULT);
+        } else {
+            screen_1_home_btn_2_is_click = 1;
+            lv_obj_set_style_img_recolor_opa(guider_ui.screen_1_home_img_9, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
+            lv_obj_set_style_img_recolor(guider_ui.screen_1_home_img_9, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);
+            lv_obj_set_style_bg_color(guider_ui.screen_1_home_btn_2, lv_color_hex(0xff6500), LV_PART_MAIN|LV_STATE_DEFAULT);
+        }
+        break;
+    }
+    default:
+        break;
+    }
+}
+
+static void screen_1_home_btn_1_event_handler (lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    switch (code) {
+    case LV_EVENT_CLICKED:
+    {
+        if(screen_1_home_btn_1_is_click) {
+            screen_1_home_btn_1_is_click = 0;
+            lv_obj_set_style_img_recolor_opa(guider_ui.screen_1_home_img_10, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+            lv_obj_set_style_img_recolor(guider_ui.screen_1_home_img_10, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);
+            lv_obj_set_style_bg_color(guider_ui.screen_1_home_btn_1, lv_color_hex(0x5a5a5a), LV_PART_MAIN|LV_STATE_DEFAULT);
+        } else {
+            screen_1_home_btn_1_is_click = 1;
+            lv_obj_set_style_img_recolor_opa(guider_ui.screen_1_home_img_10, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
+            lv_obj_set_style_img_recolor(guider_ui.screen_1_home_img_10, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);
+            lv_obj_set_style_bg_color(guider_ui.screen_1_home_btn_1, lv_color_hex(0xff6500), LV_PART_MAIN|LV_STATE_DEFAULT);
+        }
+        break;
+    }
+    default:
+        break;
+    }
+}
+
 static void screen_1_home_cont_shadow_event_handler (lv_event_t *e)
 {
     lv_event_code_t code = lv_event_get_code(e);
@@ -80,6 +161,9 @@ static void screen_1_home_cont_shadow_event_handler (lv_event_t *e)
 void events_init_screen_1_home (lv_ui *ui)
 {
     lv_obj_add_event_cb(ui->screen_1_home, screen_1_home_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->screen_1_home_btn_3, screen_1_home_btn_3_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->screen_1_home_btn_2, screen_1_home_btn_2_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->screen_1_home_btn_1, screen_1_home_btn_1_event_handler, LV_EVENT_ALL, ui);
     lv_obj_add_event_cb(ui->screen_1_home_cont_shadow, screen_1_home_cont_shadow_event_handler, LV_EVENT_ALL, ui);
 }
 
@@ -127,6 +211,78 @@ static void screen_2_event_handler (lv_event_t *e)
     }
 }
 
+static void screen_2_btn_3_event_handler (lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    switch (code) {
+    case LV_EVENT_CLICKED:
+    {
+        if(screen_2_btn_3_is_click) {
+            screen_2_btn_3_is_click = 0;
+            lv_obj_set_style_img_recolor_opa(guider_ui.screen_2_img_6, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+            lv_obj_set_style_img_recolor(guider_ui.screen_2_img_6, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);
+            lv_obj_set_style_bg_color(guider_ui.screen_2_btn_3, lv_color_hex(0x5a5a5a), LV_PART_MAIN|LV_STATE_DEFAULT);
+        } else {
+            screen_2_btn_3_is_click = 1;
+            lv_obj_set_style_img_recolor_opa(guider_ui.screen_2_img_6, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
+            lv_obj_set_style_img_recolor(guider_ui.screen_2_img_6, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);
+            lv_obj_set_style_bg_color(guider_ui.screen_2_btn_3, lv_color_hex(0xff6500), LV_PART_MAIN|LV_STATE_DEFAULT);
+        }
+        break;
+    }
+    default:
+        break;
+    }
+}
+
+static void screen_2_btn_2_event_handler (lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    switch (code) {
+    case LV_EVENT_CLICKED:
+    {
+        if(screen_2_btn_2_is_click) {
+            screen_2_btn_2_is_click = 0;
+            lv_obj_set_style_img_recolor_opa(guider_ui.screen_2_img_4, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+            lv_obj_set_style_img_recolor(guider_ui.screen_2_img_4, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);
+            lv_obj_set_style_bg_color(guider_ui.screen_2_btn_2, lv_color_hex(0x5a5a5a), LV_PART_MAIN|LV_STATE_DEFAULT);
+        } else {
+            screen_2_btn_2_is_click = 1;
+            lv_obj_set_style_img_recolor_opa(guider_ui.screen_2_img_4, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
+            lv_obj_set_style_img_recolor(guider_ui.screen_2_img_4, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);
+            lv_obj_set_style_bg_color(guider_ui.screen_2_btn_2, lv_color_hex(0xff6500), LV_PART_MAIN|LV_STATE_DEFAULT);
+        }
+        break;
+    }
+    default:
+        break;
+    }
+}
+
+static void screen_2_btn_1_event_handler (lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    switch (code) {
+    case LV_EVENT_CLICKED:
+    {
+        if(screen_2_btn_1_is_click) {
+            screen_2_btn_1_is_click = 0;
+            lv_obj_set_style_img_recolor_opa(guider_ui.screen_2_img_5, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+            lv_obj_set_style_img_recolor(guider_ui.screen_2_img_5, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);
+            lv_obj_set_style_bg_color(guider_ui.screen_2_btn_1, lv_color_hex(0x5a5a5a), LV_PART_MAIN|LV_STATE_DEFAULT);
+        } else {
+            screen_2_btn_1_is_click = 1;
+            lv_obj_set_style_img_recolor_opa(guider_ui.screen_2_img_5, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
+            lv_obj_set_style_img_recolor(guider_ui.screen_2_img_5, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);
+            lv_obj_set_style_bg_color(guider_ui.screen_2_btn_1, lv_color_hex(0xff6500), LV_PART_MAIN|LV_STATE_DEFAULT);
+        }
+        break;
+    }
+    default:
+        break;
+    }
+}
+
 static void screen_2_cont_4_event_handler (lv_event_t *e)
 {
     lv_event_code_t code = lv_event_get_code(e);
@@ -146,6 +302,9 @@ static void screen_2_cont_4_event_handler (lv_event_t *e)
 void events_init_screen_2 (lv_ui *ui)
 {
     lv_obj_add_event_cb(ui->screen_2, screen_2_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->screen_2_btn_3, screen_2_btn_3_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->screen_2_btn_2, screen_2_btn_2_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->screen_2_btn_1, screen_2_btn_1_event_handler, LV_EVENT_ALL, ui);
     lv_obj_add_event_cb(ui->screen_2_cont_4, screen_2_cont_4_event_handler, LV_EVENT_ALL, ui);
 }
 
@@ -193,6 +352,78 @@ static void screen_3_event_handler (lv_event_t *e)
     }
 }
 
+static void screen_3_btn_3_event_handler (lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    switch (code) {
+    case LV_EVENT_CLICKED:
+    {
+        if(screen_3_btn_3_is_click) {
+            screen_3_btn_3_is_click = 0;
+            lv_obj_set_style_img_recolor_opa(guider_ui.screen_3_img_9, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+            lv_obj_set_style_img_recolor(guider_ui.screen_3_img_9, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);
+            lv_obj_set_style_bg_color(guider_ui.screen_3_btn_3, lv_color_hex(0x5a5a5a), LV_PART_MAIN|LV_STATE_DEFAULT);
+        } else {
+            screen_3_btn_3_is_click = 1;
+            lv_obj_set_style_img_recolor_opa(guider_ui.screen_3_img_9, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
+            lv_obj_set_style_img_recolor(guider_ui.screen_3_img_9, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);
+            lv_obj_set_style_bg_color(guider_ui.screen_3_btn_3, lv_color_hex(0xff6500), LV_PART_MAIN|LV_STATE_DEFAULT);
+        }
+        break;
+    }
+    default:
+        break;
+    }
+}
+
+static void screen_3_btn_2_event_handler (lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    switch (code) {
+    case LV_EVENT_CLICKED:
+    {
+        if(screen_3_btn_2_is_click) {
+            screen_3_btn_2_is_click = 0;
+            lv_obj_set_style_img_recolor_opa(guider_ui.screen_3_img_7, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+            lv_obj_set_style_img_recolor(guider_ui.screen_3_img_7, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);
+            lv_obj_set_style_bg_color(guider_ui.screen_3_btn_2, lv_color_hex(0x5a5a5a), LV_PART_MAIN|LV_STATE_DEFAULT);
+        } else {
+            screen_3_btn_2_is_click = 1;
+            lv_obj_set_style_img_recolor_opa(guider_ui.screen_3_img_7, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
+            lv_obj_set_style_img_recolor(guider_ui.screen_3_img_7, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);
+            lv_obj_set_style_bg_color(guider_ui.screen_3_btn_2, lv_color_hex(0xff6500), LV_PART_MAIN|LV_STATE_DEFAULT);
+        }
+        break;
+    }
+    default:
+        break;
+    }
+}
+
+static void screen_3_btn_1_event_handler (lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    switch (code) {
+    case LV_EVENT_CLICKED:
+    {
+        if(screen_3_btn_1_is_click) {
+            screen_3_btn_1_is_click = 0;
+            lv_obj_set_style_img_recolor_opa(guider_ui.screen_3_img_8, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+            lv_obj_set_style_img_recolor(guider_ui.screen_3_img_8, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);
+            lv_obj_set_style_bg_color(guider_ui.screen_3_btn_1, lv_color_hex(0x5a5a5a), LV_PART_MAIN|LV_STATE_DEFAULT);
+        } else {
+            screen_3_btn_1_is_click = 1;
+            lv_obj_set_style_img_recolor_opa(guider_ui.screen_3_img_8, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
+            lv_obj_set_style_img_recolor(guider_ui.screen_3_img_8, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);
+            lv_obj_set_style_bg_color(guider_ui.screen_3_btn_1, lv_color_hex(0xff6500), LV_PART_MAIN|LV_STATE_DEFAULT);
+        }
+        break;
+    }
+    default:
+        break;
+    }
+}
+
 static void screen_3_cont_2_event_handler (lv_event_t *e)
 {
     lv_event_code_t code = lv_event_get_code(e);
@@ -212,6 +443,9 @@ static void screen_3_cont_2_event_handler (lv_event_t *e)
 void events_init_screen_3 (lv_ui *ui)
 {
     lv_obj_add_event_cb(ui->screen_3, screen_3_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->screen_3_btn_3, screen_3_btn_3_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->screen_3_btn_2, screen_3_btn_2_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->screen_3_btn_1, screen_3_btn_1_event_handler, LV_EVENT_ALL, ui);
     lv_obj_add_event_cb(ui->screen_3_cont_2, screen_3_cont_2_event_handler, LV_EVENT_ALL, ui);
 }
 

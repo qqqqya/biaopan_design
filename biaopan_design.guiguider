@@ -987,7 +987,28 @@
 							"long_mode": "LV_LABEL_LONG_WRAP",
 							"text": " ",
 							"toggle": false,
-							"dropToGap": false
+							"dropToGap": false,
+							"event": {
+								"widget": {
+									"clicked": {
+										"condition": [],
+										"action": [
+											{
+												"dst": "custom_code",
+												"bindCondi": "",
+												"actionList": {
+													"custom_code": {
+														"inc_c": "bool screen_1_home_btn_1_is_click = 0;\r\nbool screen_1_home_btn_2_is_click = 0;\r\nbool screen_1_home_btn_3_is_click = 0;",
+														"code_c": "if(screen_1_home_btn_1_is_click){\r\n    screen_1_home_btn_1_is_click = 0;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_1_home_img_10, 0, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_1_home_img_10, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_1_home_btn_1, lv_color_hex(0x5a5a5a), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}else{\r\n    screen_1_home_btn_1_is_click = 1;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_1_home_img_10, 255, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_1_home_img_10, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_1_home_btn_1, lv_color_hex(0xff6500), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}",
+														"inc_py": "",
+														"code_py": ""
+													}
+												}
+											}
+										]
+									}
+								}
+							}
 						},
 						{
 							"name": "btn_2",
@@ -1172,7 +1193,28 @@
 							"long_mode": "LV_LABEL_LONG_WRAP",
 							"text": " ",
 							"toggle": false,
-							"dropToGap": false
+							"dropToGap": false,
+							"event": {
+								"widget": {
+									"clicked": {
+										"condition": [],
+										"action": [
+											{
+												"dst": "custom_code",
+												"bindCondi": "",
+												"actionList": {
+													"custom_code": {
+														"inc_c": "",
+														"code_c": "if(screen_1_home_btn_2_is_click){\r\n    screen_1_home_btn_2_is_click = 0;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_1_home_img_9, 0, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_1_home_img_9, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_1_home_btn_2, lv_color_hex(0x5a5a5a), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}else{\r\n    screen_1_home_btn_2_is_click = 1;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_1_home_img_9, 255, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_1_home_img_9, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_1_home_btn_2, lv_color_hex(0xff6500), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}",
+														"inc_py": "",
+														"code_py": ""
+													}
+												}
+											}
+										]
+									}
+								}
+							}
 						},
 						{
 							"name": "btn_3",
@@ -1357,7 +1399,28 @@
 							"long_mode": "LV_LABEL_LONG_WRAP",
 							"text": " ",
 							"toggle": false,
-							"dropToGap": false
+							"dropToGap": false,
+							"event": {
+								"widget": {
+									"clicked": {
+										"condition": [],
+										"action": [
+											{
+												"dst": "custom_code",
+												"bindCondi": "",
+												"actionList": {
+													"custom_code": {
+														"inc_c": "",
+														"code_c": "if(screen_1_home_btn_3_is_click){\r\n    screen_1_home_btn_3_is_click = 0;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_1_home_img_8, 0, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_1_home_img_8, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_1_home_btn_3, lv_color_hex(0x5a5a5a), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}else{\r\n    screen_1_home_btn_3_is_click = 1;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_1_home_img_8, 255, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_1_home_img_8, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_1_home_btn_3, lv_color_hex(0xff6500), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}",
+														"inc_py": "",
+														"code_py": ""
+													}
+												}
+											}
+										]
+									}
+								}
+							}
 						}
 					],
 					"layerName": "screen_1_home"
@@ -2440,7 +2503,28 @@
 							"long_mode": "LV_LABEL_LONG_WRAP",
 							"text": " ",
 							"toggle": false,
-							"dropToGap": false
+							"dropToGap": false,
+							"event": {
+								"widget": {
+									"clicked": {
+										"condition": [],
+										"action": [
+											{
+												"dst": "custom_code",
+												"bindCondi": "",
+												"actionList": {
+													"custom_code": {
+														"inc_c": "bool screen_2_btn_1_is_click = 0;\r\nbool screen_2_btn_2_is_click = 0;\r\nbool screen_2_btn_3_is_click = 0;",
+														"code_c": "if(screen_2_btn_1_is_click){\r\n    screen_2_btn_1_is_click = 0;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_2_img_5, 0, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_2_img_5, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_2_btn_1, lv_color_hex(0x5a5a5a), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}else{\r\n    screen_2_btn_1_is_click = 1;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_2_img_5, 255, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_2_img_5, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_2_btn_1, lv_color_hex(0xff6500), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}",
+														"inc_py": "",
+														"code_py": ""
+													}
+												}
+											}
+										]
+									}
+								}
+							}
 						},
 						{
 							"name": "btn_2",
@@ -2625,7 +2709,28 @@
 							"long_mode": "LV_LABEL_LONG_WRAP",
 							"text": " ",
 							"toggle": false,
-							"dropToGap": false
+							"dropToGap": false,
+							"event": {
+								"widget": {
+									"clicked": {
+										"condition": [],
+										"action": [
+											{
+												"dst": "custom_code",
+												"bindCondi": "",
+												"actionList": {
+													"custom_code": {
+														"inc_c": "",
+														"code_c": "if(screen_2_btn_2_is_click){\r\n    screen_2_btn_2_is_click = 0;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_2_img_4, 0, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_2_img_4, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_2_btn_2, lv_color_hex(0x5a5a5a), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}else{\r\n    screen_2_btn_2_is_click = 1;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_2_img_4, 255, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_2_img_4, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_2_btn_2, lv_color_hex(0xff6500), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}",
+														"inc_py": "",
+														"code_py": ""
+													}
+												}
+											}
+										]
+									}
+								}
+							}
 						},
 						{
 							"name": "btn_3",
@@ -2810,7 +2915,28 @@
 							"long_mode": "LV_LABEL_LONG_WRAP",
 							"text": " ",
 							"toggle": false,
-							"dropToGap": false
+							"dropToGap": false,
+							"event": {
+								"widget": {
+									"clicked": {
+										"condition": [],
+										"action": [
+											{
+												"dst": "custom_code",
+												"bindCondi": "",
+												"actionList": {
+													"custom_code": {
+														"inc_c": "",
+														"code_c": "if(screen_2_btn_3_is_click){\r\n    screen_2_btn_3_is_click = 0;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_2_img_6, 0, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_2_img_6, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_2_btn_3, lv_color_hex(0x5a5a5a), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}else{\r\n    screen_2_btn_3_is_click = 1;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_2_img_6, 255, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_2_img_6, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_2_btn_3, lv_color_hex(0xff6500), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}",
+														"inc_py": "",
+														"code_py": ""
+													}
+												}
+											}
+										]
+									}
+								}
+							}
 						}
 					],
 					"layerName": "screen_2"
@@ -3855,7 +3981,28 @@
 							"long_mode": "LV_LABEL_LONG_WRAP",
 							"text": " ",
 							"toggle": false,
-							"dropToGap": false
+							"dropToGap": false,
+							"event": {
+								"widget": {
+									"clicked": {
+										"condition": [],
+										"action": [
+											{
+												"dst": "custom_code",
+												"bindCondi": "",
+												"actionList": {
+													"custom_code": {
+														"inc_c": "bool screen_3_btn_1_is_click = 0;\r\nbool screen_3_btn_2_is_click = 0;\r\nbool screen_3_btn_3_is_click = 0;",
+														"code_c": "if(screen_3_btn_1_is_click){\r\n    screen_3_btn_1_is_click = 0;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_3_img_8, 0, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_3_img_8, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_3_btn_1, lv_color_hex(0x5a5a5a), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}else{\r\n    screen_3_btn_1_is_click = 1;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_3_img_8, 255, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_3_img_8, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_3_btn_1, lv_color_hex(0xff6500), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}",
+														"inc_py": "",
+														"code_py": ""
+													}
+												}
+											}
+										]
+									}
+								}
+							}
 						},
 						{
 							"name": "btn_2",
@@ -4040,7 +4187,28 @@
 							"long_mode": "LV_LABEL_LONG_WRAP",
 							"text": " ",
 							"toggle": false,
-							"dropToGap": false
+							"dropToGap": false,
+							"event": {
+								"widget": {
+									"clicked": {
+										"condition": [],
+										"action": [
+											{
+												"dst": "custom_code",
+												"bindCondi": "",
+												"actionList": {
+													"custom_code": {
+														"inc_c": "",
+														"code_c": "if(screen_3_btn_2_is_click){\r\n    screen_3_btn_2_is_click = 0;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_3_img_7, 0, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_3_img_7, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_3_btn_2, lv_color_hex(0x5a5a5a), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}else{\r\n    screen_3_btn_2_is_click = 1;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_3_img_7, 255, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_3_img_7, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_3_btn_2, lv_color_hex(0xff6500), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}",
+														"inc_py": "",
+														"code_py": ""
+													}
+												}
+											}
+										]
+									}
+								}
+							}
 						},
 						{
 							"name": "btn_3",
@@ -4225,7 +4393,28 @@
 							"long_mode": "LV_LABEL_LONG_WRAP",
 							"text": " ",
 							"toggle": false,
-							"dropToGap": false
+							"dropToGap": false,
+							"event": {
+								"widget": {
+									"clicked": {
+										"condition": [],
+										"action": [
+											{
+												"dst": "custom_code",
+												"bindCondi": "",
+												"actionList": {
+													"custom_code": {
+														"inc_c": "",
+														"code_c": "if(screen_3_btn_3_is_click){\r\n    screen_3_btn_3_is_click = 0;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_3_img_9, 0, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_3_img_9, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_3_btn_3, lv_color_hex(0x5a5a5a), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}else{\r\n    screen_3_btn_3_is_click = 1;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_3_img_9, 255, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_3_img_9, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_3_btn_3, lv_color_hex(0xff6500), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}",
+														"inc_py": "",
+														"code_py": ""
+													}
+												}
+											}
+										]
+									}
+								}
+							}
 						}
 					],
 					"layerName": "screen_3"
@@ -7032,7 +7221,28 @@
 														"long_mode": "LV_LABEL_LONG_WRAP",
 														"text": " ",
 														"toggle": false,
-														"dropToGap": false
+														"dropToGap": false,
+														"event": {
+															"widget": {
+																"clicked": {
+																	"condition": [],
+																	"action": [
+																		{
+																			"dst": "custom_code",
+																			"bindCondi": "",
+																			"actionList": {
+																				"custom_code": {
+																					"inc_c": "bool screen_2_btn_1_is_click = 0;\r\nbool screen_2_btn_2_is_click = 0;\r\nbool screen_2_btn_3_is_click = 0;",
+																					"code_c": "if(screen_2_btn_1_is_click){\r\n    screen_2_btn_1_is_click = 0;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_2_img_5, 0, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_2_img_5, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_2_btn_1, lv_color_hex(0x5a5a5a), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}else{\r\n    screen_2_btn_1_is_click = 1;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_2_img_5, 255, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_2_img_5, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_2_btn_1, lv_color_hex(0xff6500), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}",
+																					"inc_py": "",
+																					"code_py": ""
+																				}
+																			}
+																		}
+																	]
+																}
+															}
+														}
 													},
 													{
 														"name": "btn_2",
@@ -7217,7 +7427,28 @@
 														"long_mode": "LV_LABEL_LONG_WRAP",
 														"text": " ",
 														"toggle": false,
-														"dropToGap": false
+														"dropToGap": false,
+														"event": {
+															"widget": {
+																"clicked": {
+																	"condition": [],
+																	"action": [
+																		{
+																			"dst": "custom_code",
+																			"bindCondi": "",
+																			"actionList": {
+																				"custom_code": {
+																					"inc_c": "",
+																					"code_c": "if(screen_2_btn_2_is_click){\r\n    screen_2_btn_2_is_click = 0;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_2_img_4, 0, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_2_img_4, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_2_btn_2, lv_color_hex(0x5a5a5a), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}else{\r\n    screen_2_btn_2_is_click = 1;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_2_img_4, 255, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_2_img_4, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_2_btn_2, lv_color_hex(0xff6500), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}",
+																					"inc_py": "",
+																					"code_py": ""
+																				}
+																			}
+																		}
+																	]
+																}
+															}
+														}
 													},
 													{
 														"name": "btn_3",
@@ -7402,7 +7633,28 @@
 														"long_mode": "LV_LABEL_LONG_WRAP",
 														"text": " ",
 														"toggle": false,
-														"dropToGap": false
+														"dropToGap": false,
+														"event": {
+															"widget": {
+																"clicked": {
+																	"condition": [],
+																	"action": [
+																		{
+																			"dst": "custom_code",
+																			"bindCondi": "",
+																			"actionList": {
+																				"custom_code": {
+																					"inc_c": "",
+																					"code_c": "if(screen_2_btn_3_is_click){\r\n    screen_2_btn_3_is_click = 0;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_2_img_6, 0, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_2_img_6, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_2_btn_3, lv_color_hex(0x5a5a5a), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}else{\r\n    screen_2_btn_3_is_click = 1;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_2_img_6, 255, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_2_img_6, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_2_btn_3, lv_color_hex(0xff6500), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}",
+																					"inc_py": "",
+																					"code_py": ""
+																				}
+																			}
+																		}
+																	]
+																}
+															}
+														}
 													}
 												],
 												"layerName": "screen_2"
@@ -9190,7 +9442,28 @@
 												"long_mode": "LV_LABEL_LONG_WRAP",
 												"text": " ",
 												"toggle": false,
-												"dropToGap": false
+												"dropToGap": false,
+												"event": {
+													"widget": {
+														"clicked": {
+															"condition": [],
+															"action": [
+																{
+																	"dst": "custom_code",
+																	"bindCondi": "",
+																	"actionList": {
+																		"custom_code": {
+																			"inc_c": "bool screen_1_home_btn_1_is_click = 0;\r\nbool screen_1_home_btn_2_is_click = 0;\r\nbool screen_1_home_btn_3_is_click = 0;",
+																			"code_c": "if(screen_1_home_btn_1_is_click){\r\n    screen_1_home_btn_1_is_click = 0;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_1_home_img_10, 0, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_1_home_img_10, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_1_home_btn_1, lv_color_hex(0x5a5a5a), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}else{\r\n    screen_1_home_btn_1_is_click = 1;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_1_home_img_10, 255, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_1_home_img_10, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_1_home_btn_1, lv_color_hex(0xff6500), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}",
+																			"inc_py": "",
+																			"code_py": ""
+																		}
+																	}
+																}
+															]
+														}
+													}
+												}
 											},
 											{
 												"name": "btn_2",
@@ -9375,7 +9648,28 @@
 												"long_mode": "LV_LABEL_LONG_WRAP",
 												"text": " ",
 												"toggle": false,
-												"dropToGap": false
+												"dropToGap": false,
+												"event": {
+													"widget": {
+														"clicked": {
+															"condition": [],
+															"action": [
+																{
+																	"dst": "custom_code",
+																	"bindCondi": "",
+																	"actionList": {
+																		"custom_code": {
+																			"inc_c": "",
+																			"code_c": "if(screen_1_home_btn_2_is_click){\r\n    screen_1_home_btn_2_is_click = 0;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_1_home_img_9, 0, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_1_home_img_9, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_1_home_btn_2, lv_color_hex(0x5a5a5a), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}else{\r\n    screen_1_home_btn_2_is_click = 1;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_1_home_img_9, 255, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_1_home_img_9, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_1_home_btn_2, lv_color_hex(0xff6500), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}",
+																			"inc_py": "",
+																			"code_py": ""
+																		}
+																	}
+																}
+															]
+														}
+													}
+												}
 											},
 											{
 												"name": "btn_3",
@@ -9560,7 +9854,28 @@
 												"long_mode": "LV_LABEL_LONG_WRAP",
 												"text": " ",
 												"toggle": false,
-												"dropToGap": false
+												"dropToGap": false,
+												"event": {
+													"widget": {
+														"clicked": {
+															"condition": [],
+															"action": [
+																{
+																	"dst": "custom_code",
+																	"bindCondi": "",
+																	"actionList": {
+																		"custom_code": {
+																			"inc_c": "",
+																			"code_c": "if(screen_1_home_btn_3_is_click){\r\n    screen_1_home_btn_3_is_click = 0;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_1_home_img_8, 0, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_1_home_img_8, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_1_home_btn_3, lv_color_hex(0x5a5a5a), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}else{\r\n    screen_1_home_btn_3_is_click = 1;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_1_home_img_8, 255, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_1_home_img_8, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_1_home_btn_3, lv_color_hex(0xff6500), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}",
+																			"inc_py": "",
+																			"code_py": ""
+																		}
+																	}
+																}
+															]
+														}
+													}
+												}
 											}
 										],
 										"layerName": "screen_1_home"
@@ -9886,6 +10201,27 @@
 									50
 								],
 								"default_style": false,
+								"event": {
+									"widget": {
+										"clicked": {
+											"condition": [],
+											"action": [
+												{
+													"dst": "custom_code",
+													"bindCondi": "",
+													"actionList": {
+														"custom_code": {
+															"inc_c": "",
+															"code_c": "if(screen_1_home_btn_3_is_click){\r\n    screen_1_home_btn_3_is_click = 0;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_1_home_img_8, 0, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_1_home_img_8, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_1_home_btn_3, lv_color_hex(0x5a5a5a), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}else{\r\n    screen_1_home_btn_3_is_click = 1;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_1_home_img_8, 255, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_1_home_img_8, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_1_home_btn_3, lv_color_hex(0xff6500), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}",
+															"inc_py": "",
+															"code_py": ""
+														}
+													}
+												}
+											]
+										}
+									}
+								},
 								"text_align": "center",
 								"style": [
 									{
@@ -10074,6 +10410,27 @@
 									50
 								],
 								"default_style": false,
+								"event": {
+									"widget": {
+										"clicked": {
+											"condition": [],
+											"action": [
+												{
+													"dst": "custom_code",
+													"bindCondi": "",
+													"actionList": {
+														"custom_code": {
+															"inc_c": "",
+															"code_c": "if(screen_1_home_btn_2_is_click){\r\n    screen_1_home_btn_2_is_click = 0;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_1_home_img_9, 0, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_1_home_img_9, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_1_home_btn_2, lv_color_hex(0x5a5a5a), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}else{\r\n    screen_1_home_btn_2_is_click = 1;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_1_home_img_9, 255, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_1_home_img_9, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_1_home_btn_2, lv_color_hex(0xff6500), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}",
+															"inc_py": "",
+															"code_py": ""
+														}
+													}
+												}
+											]
+										}
+									}
+								},
 								"text_align": "center",
 								"style": [
 									{
@@ -10262,6 +10619,27 @@
 									50
 								],
 								"default_style": false,
+								"event": {
+									"widget": {
+										"clicked": {
+											"condition": [],
+											"action": [
+												{
+													"dst": "custom_code",
+													"bindCondi": "",
+													"actionList": {
+														"custom_code": {
+															"inc_c": "bool screen_1_home_btn_1_is_click = 0;\r\nbool screen_1_home_btn_2_is_click = 0;\r\nbool screen_1_home_btn_3_is_click = 0;",
+															"code_c": "if(screen_1_home_btn_1_is_click){\r\n    screen_1_home_btn_1_is_click = 0;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_1_home_img_10, 0, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_1_home_img_10, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_1_home_btn_1, lv_color_hex(0x5a5a5a), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}else{\r\n    screen_1_home_btn_1_is_click = 1;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_1_home_img_10, 255, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_1_home_img_10, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_1_home_btn_1, lv_color_hex(0xff6500), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}",
+															"inc_py": "",
+															"code_py": ""
+														}
+													}
+												}
+											]
+										}
+									}
+								},
 								"text_align": "center",
 								"style": [
 									{
@@ -11604,7 +11982,28 @@
 														"long_mode": "LV_LABEL_LONG_WRAP",
 														"text": " ",
 														"toggle": false,
-														"dropToGap": false
+														"dropToGap": false,
+														"event": {
+															"widget": {
+																"clicked": {
+																	"condition": [],
+																	"action": [
+																		{
+																			"dst": "custom_code",
+																			"bindCondi": "",
+																			"actionList": {
+																				"custom_code": {
+																					"inc_c": "bool screen_1_home_btn_1_is_click = 0;\r\nbool screen_1_home_btn_2_is_click = 0;\r\nbool screen_1_home_btn_3_is_click = 0;",
+																					"code_c": "if(screen_1_home_btn_1_is_click){\r\n    screen_1_home_btn_1_is_click = 0;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_1_home_img_10, 0, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_1_home_img_10, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_1_home_btn_1, lv_color_hex(0x5a5a5a), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}else{\r\n    screen_1_home_btn_1_is_click = 1;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_1_home_img_10, 255, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_1_home_img_10, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_1_home_btn_1, lv_color_hex(0xff6500), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}",
+																					"inc_py": "",
+																					"code_py": ""
+																				}
+																			}
+																		}
+																	]
+																}
+															}
+														}
 													},
 													{
 														"name": "btn_2",
@@ -11789,7 +12188,28 @@
 														"long_mode": "LV_LABEL_LONG_WRAP",
 														"text": " ",
 														"toggle": false,
-														"dropToGap": false
+														"dropToGap": false,
+														"event": {
+															"widget": {
+																"clicked": {
+																	"condition": [],
+																	"action": [
+																		{
+																			"dst": "custom_code",
+																			"bindCondi": "",
+																			"actionList": {
+																				"custom_code": {
+																					"inc_c": "",
+																					"code_c": "if(screen_1_home_btn_2_is_click){\r\n    screen_1_home_btn_2_is_click = 0;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_1_home_img_9, 0, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_1_home_img_9, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_1_home_btn_2, lv_color_hex(0x5a5a5a), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}else{\r\n    screen_1_home_btn_2_is_click = 1;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_1_home_img_9, 255, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_1_home_img_9, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_1_home_btn_2, lv_color_hex(0xff6500), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}",
+																					"inc_py": "",
+																					"code_py": ""
+																				}
+																			}
+																		}
+																	]
+																}
+															}
+														}
 													},
 													{
 														"name": "btn_3",
@@ -11974,7 +12394,28 @@
 														"long_mode": "LV_LABEL_LONG_WRAP",
 														"text": " ",
 														"toggle": false,
-														"dropToGap": false
+														"dropToGap": false,
+														"event": {
+															"widget": {
+																"clicked": {
+																	"condition": [],
+																	"action": [
+																		{
+																			"dst": "custom_code",
+																			"bindCondi": "",
+																			"actionList": {
+																				"custom_code": {
+																					"inc_c": "",
+																					"code_c": "if(screen_1_home_btn_3_is_click){\r\n    screen_1_home_btn_3_is_click = 0;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_1_home_img_8, 0, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_1_home_img_8, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_1_home_btn_3, lv_color_hex(0x5a5a5a), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}else{\r\n    screen_1_home_btn_3_is_click = 1;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_1_home_img_8, 255, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_1_home_img_8, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_1_home_btn_3, lv_color_hex(0xff6500), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}",
+																					"inc_py": "",
+																					"code_py": ""
+																				}
+																			}
+																		}
+																	]
+																}
+															}
+														}
 													}
 												],
 												"layerName": "screen_1_home"
@@ -12771,7 +13212,28 @@
 														"long_mode": "LV_LABEL_LONG_WRAP",
 														"text": " ",
 														"toggle": false,
-														"dropToGap": false
+														"dropToGap": false,
+														"event": {
+															"widget": {
+																"clicked": {
+																	"condition": [],
+																	"action": [
+																		{
+																			"dst": "custom_code",
+																			"bindCondi": "",
+																			"actionList": {
+																				"custom_code": {
+																					"inc_c": "bool screen_3_btn_1_is_click = 0;\r\nbool screen_3_btn_2_is_click = 0;\r\nbool screen_3_btn_3_is_click = 0;",
+																					"code_c": "if(screen_3_btn_1_is_click){\r\n    screen_3_btn_1_is_click = 0;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_3_img_8, 0, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_3_img_8, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_3_btn_1, lv_color_hex(0x5a5a5a), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}else{\r\n    screen_3_btn_1_is_click = 1;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_3_img_8, 255, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_3_img_8, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_3_btn_1, lv_color_hex(0xff6500), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}",
+																					"inc_py": "",
+																					"code_py": ""
+																				}
+																			}
+																		}
+																	]
+																}
+															}
+														}
 													},
 													{
 														"name": "btn_2",
@@ -12956,7 +13418,28 @@
 														"long_mode": "LV_LABEL_LONG_WRAP",
 														"text": " ",
 														"toggle": false,
-														"dropToGap": false
+														"dropToGap": false,
+														"event": {
+															"widget": {
+																"clicked": {
+																	"condition": [],
+																	"action": [
+																		{
+																			"dst": "custom_code",
+																			"bindCondi": "",
+																			"actionList": {
+																				"custom_code": {
+																					"inc_c": "",
+																					"code_c": "if(screen_3_btn_2_is_click){\r\n    screen_3_btn_2_is_click = 0;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_3_img_7, 0, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_3_img_7, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_3_btn_2, lv_color_hex(0x5a5a5a), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}else{\r\n    screen_3_btn_2_is_click = 1;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_3_img_7, 255, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_3_img_7, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_3_btn_2, lv_color_hex(0xff6500), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}",
+																					"inc_py": "",
+																					"code_py": ""
+																				}
+																			}
+																		}
+																	]
+																}
+															}
+														}
 													},
 													{
 														"name": "btn_3",
@@ -13141,7 +13624,28 @@
 														"long_mode": "LV_LABEL_LONG_WRAP",
 														"text": " ",
 														"toggle": false,
-														"dropToGap": false
+														"dropToGap": false,
+														"event": {
+															"widget": {
+																"clicked": {
+																	"condition": [],
+																	"action": [
+																		{
+																			"dst": "custom_code",
+																			"bindCondi": "",
+																			"actionList": {
+																				"custom_code": {
+																					"inc_c": "",
+																					"code_c": "if(screen_3_btn_3_is_click){\r\n    screen_3_btn_3_is_click = 0;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_3_img_9, 0, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_3_img_9, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_3_btn_3, lv_color_hex(0x5a5a5a), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}else{\r\n    screen_3_btn_3_is_click = 1;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_3_img_9, 255, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_3_img_9, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_3_btn_3, lv_color_hex(0xff6500), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}",
+																					"inc_py": "",
+																					"code_py": ""
+																				}
+																			}
+																		}
+																	]
+																}
+															}
+														}
 													}
 												],
 												"layerName": "screen_3"
@@ -15752,7 +16256,28 @@
 												"long_mode": "LV_LABEL_LONG_WRAP",
 												"text": " ",
 												"toggle": false,
-												"dropToGap": false
+												"dropToGap": false,
+												"event": {
+													"widget": {
+														"clicked": {
+															"condition": [],
+															"action": [
+																{
+																	"dst": "custom_code",
+																	"bindCondi": "",
+																	"actionList": {
+																		"custom_code": {
+																			"inc_c": "bool screen_2_btn_1_is_click = 0;\r\nbool screen_2_btn_2_is_click = 0;\r\nbool screen_2_btn_3_is_click = 0;",
+																			"code_c": "if(screen_2_btn_1_is_click){\r\n    screen_2_btn_1_is_click = 0;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_2_img_5, 0, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_2_img_5, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_2_btn_1, lv_color_hex(0x5a5a5a), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}else{\r\n    screen_2_btn_1_is_click = 1;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_2_img_5, 255, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_2_img_5, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_2_btn_1, lv_color_hex(0xff6500), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}",
+																			"inc_py": "",
+																			"code_py": ""
+																		}
+																	}
+																}
+															]
+														}
+													}
+												}
 											},
 											{
 												"name": "btn_2",
@@ -15937,7 +16462,28 @@
 												"long_mode": "LV_LABEL_LONG_WRAP",
 												"text": " ",
 												"toggle": false,
-												"dropToGap": false
+												"dropToGap": false,
+												"event": {
+													"widget": {
+														"clicked": {
+															"condition": [],
+															"action": [
+																{
+																	"dst": "custom_code",
+																	"bindCondi": "",
+																	"actionList": {
+																		"custom_code": {
+																			"inc_c": "",
+																			"code_c": "if(screen_2_btn_2_is_click){\r\n    screen_2_btn_2_is_click = 0;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_2_img_4, 0, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_2_img_4, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_2_btn_2, lv_color_hex(0x5a5a5a), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}else{\r\n    screen_2_btn_2_is_click = 1;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_2_img_4, 255, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_2_img_4, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_2_btn_2, lv_color_hex(0xff6500), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}",
+																			"inc_py": "",
+																			"code_py": ""
+																		}
+																	}
+																}
+															]
+														}
+													}
+												}
 											},
 											{
 												"name": "btn_3",
@@ -16122,7 +16668,28 @@
 												"long_mode": "LV_LABEL_LONG_WRAP",
 												"text": " ",
 												"toggle": false,
-												"dropToGap": false
+												"dropToGap": false,
+												"event": {
+													"widget": {
+														"clicked": {
+															"condition": [],
+															"action": [
+																{
+																	"dst": "custom_code",
+																	"bindCondi": "",
+																	"actionList": {
+																		"custom_code": {
+																			"inc_c": "",
+																			"code_c": "if(screen_2_btn_3_is_click){\r\n    screen_2_btn_3_is_click = 0;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_2_img_6, 0, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_2_img_6, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_2_btn_3, lv_color_hex(0x5a5a5a), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}else{\r\n    screen_2_btn_3_is_click = 1;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_2_img_6, 255, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_2_img_6, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_2_btn_3, lv_color_hex(0xff6500), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}",
+																			"inc_py": "",
+																			"code_py": ""
+																		}
+																	}
+																}
+															]
+														}
+													}
+												}
 											}
 										],
 										"layerName": "screen_2"
@@ -16606,6 +17173,27 @@
 									50
 								],
 								"default_style": false,
+								"event": {
+									"widget": {
+										"clicked": {
+											"condition": [],
+											"action": [
+												{
+													"dst": "custom_code",
+													"bindCondi": "",
+													"actionList": {
+														"custom_code": {
+															"inc_c": "",
+															"code_c": "if(screen_2_btn_3_is_click){\r\n    screen_2_btn_3_is_click = 0;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_2_img_6, 0, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_2_img_6, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_2_btn_3, lv_color_hex(0x5a5a5a), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}else{\r\n    screen_2_btn_3_is_click = 1;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_2_img_6, 255, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_2_img_6, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_2_btn_3, lv_color_hex(0xff6500), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}",
+															"inc_py": "",
+															"code_py": ""
+														}
+													}
+												}
+											]
+										}
+									}
+								},
 								"text_align": "center",
 								"style": [
 									{
@@ -16794,6 +17382,27 @@
 									50
 								],
 								"default_style": false,
+								"event": {
+									"widget": {
+										"clicked": {
+											"condition": [],
+											"action": [
+												{
+													"dst": "custom_code",
+													"bindCondi": "",
+													"actionList": {
+														"custom_code": {
+															"inc_c": "",
+															"code_c": "if(screen_2_btn_2_is_click){\r\n    screen_2_btn_2_is_click = 0;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_2_img_4, 0, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_2_img_4, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_2_btn_2, lv_color_hex(0x5a5a5a), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}else{\r\n    screen_2_btn_2_is_click = 1;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_2_img_4, 255, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_2_img_4, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_2_btn_2, lv_color_hex(0xff6500), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}",
+															"inc_py": "",
+															"code_py": ""
+														}
+													}
+												}
+											]
+										}
+									}
+								},
 								"text_align": "center",
 								"style": [
 									{
@@ -16982,6 +17591,27 @@
 									50
 								],
 								"default_style": false,
+								"event": {
+									"widget": {
+										"clicked": {
+											"condition": [],
+											"action": [
+												{
+													"dst": "custom_code",
+													"bindCondi": "",
+													"actionList": {
+														"custom_code": {
+															"inc_c": "bool screen_2_btn_1_is_click = 0;\r\nbool screen_2_btn_2_is_click = 0;\r\nbool screen_2_btn_3_is_click = 0;",
+															"code_c": "if(screen_2_btn_1_is_click){\r\n    screen_2_btn_1_is_click = 0;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_2_img_5, 0, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_2_img_5, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_2_btn_1, lv_color_hex(0x5a5a5a), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}else{\r\n    screen_2_btn_1_is_click = 1;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_2_img_5, 255, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_2_img_5, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_2_btn_1, lv_color_hex(0xff6500), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}",
+															"inc_py": "",
+															"code_py": ""
+														}
+													}
+												}
+											]
+										}
+									}
+								},
 								"text_align": "center",
 								"style": [
 									{
@@ -18204,7 +18834,28 @@
 														"long_mode": "LV_LABEL_LONG_WRAP",
 														"text": " ",
 														"toggle": false,
-														"dropToGap": false
+														"dropToGap": false,
+														"event": {
+															"widget": {
+																"clicked": {
+																	"condition": [],
+																	"action": [
+																		{
+																			"dst": "custom_code",
+																			"bindCondi": "",
+																			"actionList": {
+																				"custom_code": {
+																					"inc_c": "bool screen_2_btn_1_is_click = 0;\r\nbool screen_2_btn_2_is_click = 0;\r\nbool screen_2_btn_3_is_click = 0;",
+																					"code_c": "if(screen_2_btn_1_is_click){\r\n    screen_2_btn_1_is_click = 0;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_2_img_5, 0, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_2_img_5, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_2_btn_1, lv_color_hex(0x5a5a5a), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}else{\r\n    screen_2_btn_1_is_click = 1;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_2_img_5, 255, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_2_img_5, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_2_btn_1, lv_color_hex(0xff6500), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}",
+																					"inc_py": "",
+																					"code_py": ""
+																				}
+																			}
+																		}
+																	]
+																}
+															}
+														}
 													},
 													{
 														"name": "btn_2",
@@ -18389,7 +19040,28 @@
 														"long_mode": "LV_LABEL_LONG_WRAP",
 														"text": " ",
 														"toggle": false,
-														"dropToGap": false
+														"dropToGap": false,
+														"event": {
+															"widget": {
+																"clicked": {
+																	"condition": [],
+																	"action": [
+																		{
+																			"dst": "custom_code",
+																			"bindCondi": "",
+																			"actionList": {
+																				"custom_code": {
+																					"inc_c": "",
+																					"code_c": "if(screen_2_btn_2_is_click){\r\n    screen_2_btn_2_is_click = 0;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_2_img_4, 0, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_2_img_4, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_2_btn_2, lv_color_hex(0x5a5a5a), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}else{\r\n    screen_2_btn_2_is_click = 1;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_2_img_4, 255, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_2_img_4, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_2_btn_2, lv_color_hex(0xff6500), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}",
+																					"inc_py": "",
+																					"code_py": ""
+																				}
+																			}
+																		}
+																	]
+																}
+															}
+														}
 													},
 													{
 														"name": "btn_3",
@@ -18574,7 +19246,28 @@
 														"long_mode": "LV_LABEL_LONG_WRAP",
 														"text": " ",
 														"toggle": false,
-														"dropToGap": false
+														"dropToGap": false,
+														"event": {
+															"widget": {
+																"clicked": {
+																	"condition": [],
+																	"action": [
+																		{
+																			"dst": "custom_code",
+																			"bindCondi": "",
+																			"actionList": {
+																				"custom_code": {
+																					"inc_c": "",
+																					"code_c": "if(screen_2_btn_3_is_click){\r\n    screen_2_btn_3_is_click = 0;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_2_img_6, 0, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_2_img_6, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_2_btn_3, lv_color_hex(0x5a5a5a), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}else{\r\n    screen_2_btn_3_is_click = 1;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_2_img_6, 255, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_2_img_6, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_2_btn_3, lv_color_hex(0xff6500), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}",
+																					"inc_py": "",
+																					"code_py": ""
+																				}
+																			}
+																		}
+																	]
+																}
+															}
+														}
 													}
 												],
 												"layerName": "screen_2"
@@ -19475,7 +20168,28 @@
 														"long_mode": "LV_LABEL_LONG_WRAP",
 														"text": " ",
 														"toggle": false,
-														"dropToGap": false
+														"dropToGap": false,
+														"event": {
+															"widget": {
+																"clicked": {
+																	"condition": [],
+																	"action": [
+																		{
+																			"dst": "custom_code",
+																			"bindCondi": "",
+																			"actionList": {
+																				"custom_code": {
+																					"inc_c": "bool screen_1_home_btn_1_is_click = 0;\r\nbool screen_1_home_btn_2_is_click = 0;\r\nbool screen_1_home_btn_3_is_click = 0;",
+																					"code_c": "if(screen_1_home_btn_1_is_click){\r\n    screen_1_home_btn_1_is_click = 0;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_1_home_img_10, 0, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_1_home_img_10, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_1_home_btn_1, lv_color_hex(0x5a5a5a), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}else{\r\n    screen_1_home_btn_1_is_click = 1;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_1_home_img_10, 255, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_1_home_img_10, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_1_home_btn_1, lv_color_hex(0xff6500), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}",
+																					"inc_py": "",
+																					"code_py": ""
+																				}
+																			}
+																		}
+																	]
+																}
+															}
+														}
 													},
 													{
 														"name": "btn_2",
@@ -19660,7 +20374,28 @@
 														"long_mode": "LV_LABEL_LONG_WRAP",
 														"text": " ",
 														"toggle": false,
-														"dropToGap": false
+														"dropToGap": false,
+														"event": {
+															"widget": {
+																"clicked": {
+																	"condition": [],
+																	"action": [
+																		{
+																			"dst": "custom_code",
+																			"bindCondi": "",
+																			"actionList": {
+																				"custom_code": {
+																					"inc_c": "",
+																					"code_c": "if(screen_1_home_btn_2_is_click){\r\n    screen_1_home_btn_2_is_click = 0;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_1_home_img_9, 0, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_1_home_img_9, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_1_home_btn_2, lv_color_hex(0x5a5a5a), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}else{\r\n    screen_1_home_btn_2_is_click = 1;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_1_home_img_9, 255, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_1_home_img_9, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_1_home_btn_2, lv_color_hex(0xff6500), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}",
+																					"inc_py": "",
+																					"code_py": ""
+																				}
+																			}
+																		}
+																	]
+																}
+															}
+														}
 													},
 													{
 														"name": "btn_3",
@@ -19845,7 +20580,28 @@
 														"long_mode": "LV_LABEL_LONG_WRAP",
 														"text": " ",
 														"toggle": false,
-														"dropToGap": false
+														"dropToGap": false,
+														"event": {
+															"widget": {
+																"clicked": {
+																	"condition": [],
+																	"action": [
+																		{
+																			"dst": "custom_code",
+																			"bindCondi": "",
+																			"actionList": {
+																				"custom_code": {
+																					"inc_c": "",
+																					"code_c": "if(screen_1_home_btn_3_is_click){\r\n    screen_1_home_btn_3_is_click = 0;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_1_home_img_8, 0, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_1_home_img_8, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_1_home_btn_3, lv_color_hex(0x5a5a5a), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}else{\r\n    screen_1_home_btn_3_is_click = 1;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_1_home_img_8, 255, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_1_home_img_8, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_1_home_btn_3, lv_color_hex(0xff6500), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}",
+																					"inc_py": "",
+																					"code_py": ""
+																				}
+																			}
+																		}
+																	]
+																}
+															}
+														}
 													}
 												],
 												"layerName": "screen_1_home"
@@ -21175,7 +21931,28 @@
 												"long_mode": "LV_LABEL_LONG_WRAP",
 												"text": " ",
 												"toggle": false,
-												"dropToGap": false
+												"dropToGap": false,
+												"event": {
+													"widget": {
+														"clicked": {
+															"condition": [],
+															"action": [
+																{
+																	"dst": "custom_code",
+																	"bindCondi": "",
+																	"actionList": {
+																		"custom_code": {
+																			"inc_c": "bool screen_3_btn_1_is_click = 0;\r\nbool screen_3_btn_2_is_click = 0;\r\nbool screen_3_btn_3_is_click = 0;",
+																			"code_c": "if(screen_3_btn_1_is_click){\r\n    screen_3_btn_1_is_click = 0;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_3_img_8, 0, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_3_img_8, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_3_btn_1, lv_color_hex(0x5a5a5a), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}else{\r\n    screen_3_btn_1_is_click = 1;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_3_img_8, 255, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_3_img_8, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_3_btn_1, lv_color_hex(0xff6500), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}",
+																			"inc_py": "",
+																			"code_py": ""
+																		}
+																	}
+																}
+															]
+														}
+													}
+												}
 											},
 											{
 												"name": "btn_2",
@@ -21360,7 +22137,28 @@
 												"long_mode": "LV_LABEL_LONG_WRAP",
 												"text": " ",
 												"toggle": false,
-												"dropToGap": false
+												"dropToGap": false,
+												"event": {
+													"widget": {
+														"clicked": {
+															"condition": [],
+															"action": [
+																{
+																	"dst": "custom_code",
+																	"bindCondi": "",
+																	"actionList": {
+																		"custom_code": {
+																			"inc_c": "",
+																			"code_c": "if(screen_3_btn_2_is_click){\r\n    screen_3_btn_2_is_click = 0;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_3_img_7, 0, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_3_img_7, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_3_btn_2, lv_color_hex(0x5a5a5a), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}else{\r\n    screen_3_btn_2_is_click = 1;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_3_img_7, 255, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_3_img_7, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_3_btn_2, lv_color_hex(0xff6500), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}",
+																			"inc_py": "",
+																			"code_py": ""
+																		}
+																	}
+																}
+															]
+														}
+													}
+												}
 											},
 											{
 												"name": "btn_3",
@@ -21545,7 +22343,28 @@
 												"long_mode": "LV_LABEL_LONG_WRAP",
 												"text": " ",
 												"toggle": false,
-												"dropToGap": false
+												"dropToGap": false,
+												"event": {
+													"widget": {
+														"clicked": {
+															"condition": [],
+															"action": [
+																{
+																	"dst": "custom_code",
+																	"bindCondi": "",
+																	"actionList": {
+																		"custom_code": {
+																			"inc_c": "",
+																			"code_c": "if(screen_3_btn_3_is_click){\r\n    screen_3_btn_3_is_click = 0;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_3_img_9, 0, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_3_img_9, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_3_btn_3, lv_color_hex(0x5a5a5a), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}else{\r\n    screen_3_btn_3_is_click = 1;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_3_img_9, 255, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_3_img_9, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_3_btn_3, lv_color_hex(0xff6500), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}",
+																			"inc_py": "",
+																			"code_py": ""
+																		}
+																	}
+																}
+															]
+														}
+													}
+												}
 											}
 										],
 										"layerName": "screen_3"
@@ -23415,6 +24234,27 @@
 									50
 								],
 								"default_style": false,
+								"event": {
+									"widget": {
+										"clicked": {
+											"condition": [],
+											"action": [
+												{
+													"dst": "custom_code",
+													"bindCondi": "",
+													"actionList": {
+														"custom_code": {
+															"inc_c": "",
+															"code_c": "if(screen_3_btn_3_is_click){\r\n    screen_3_btn_3_is_click = 0;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_3_img_9, 0, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_3_img_9, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_3_btn_3, lv_color_hex(0x5a5a5a), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}else{\r\n    screen_3_btn_3_is_click = 1;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_3_img_9, 255, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_3_img_9, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_3_btn_3, lv_color_hex(0xff6500), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}",
+															"inc_py": "",
+															"code_py": ""
+														}
+													}
+												}
+											]
+										}
+									}
+								},
 								"text_align": "center",
 								"style": [
 									{
@@ -23603,6 +24443,27 @@
 									50
 								],
 								"default_style": false,
+								"event": {
+									"widget": {
+										"clicked": {
+											"condition": [],
+											"action": [
+												{
+													"dst": "custom_code",
+													"bindCondi": "",
+													"actionList": {
+														"custom_code": {
+															"inc_c": "",
+															"code_c": "if(screen_3_btn_2_is_click){\r\n    screen_3_btn_2_is_click = 0;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_3_img_7, 0, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_3_img_7, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_3_btn_2, lv_color_hex(0x5a5a5a), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}else{\r\n    screen_3_btn_2_is_click = 1;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_3_img_7, 255, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_3_img_7, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_3_btn_2, lv_color_hex(0xff6500), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}",
+															"inc_py": "",
+															"code_py": ""
+														}
+													}
+												}
+											]
+										}
+									}
+								},
 								"text_align": "center",
 								"style": [
 									{
@@ -23791,6 +24652,27 @@
 									50
 								],
 								"default_style": false,
+								"event": {
+									"widget": {
+										"clicked": {
+											"condition": [],
+											"action": [
+												{
+													"dst": "custom_code",
+													"bindCondi": "",
+													"actionList": {
+														"custom_code": {
+															"inc_c": "bool screen_3_btn_1_is_click = 0;\r\nbool screen_3_btn_2_is_click = 0;\r\nbool screen_3_btn_3_is_click = 0;",
+															"code_c": "if(screen_3_btn_1_is_click){\r\n    screen_3_btn_1_is_click = 0;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_3_img_8, 0, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_3_img_8, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_3_btn_1, lv_color_hex(0x5a5a5a), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}else{\r\n    screen_3_btn_1_is_click = 1;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_3_img_8, 255, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_3_img_8, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_3_btn_1, lv_color_hex(0xff6500), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}",
+															"inc_py": "",
+															"code_py": ""
+														}
+													}
+												}
+											]
+										}
+									}
+								},
 								"text_align": "center",
 								"style": [
 									{
@@ -25017,7 +25899,28 @@
 														"long_mode": "LV_LABEL_LONG_WRAP",
 														"text": " ",
 														"toggle": false,
-														"dropToGap": false
+														"dropToGap": false,
+														"event": {
+															"widget": {
+																"clicked": {
+																	"condition": [],
+																	"action": [
+																		{
+																			"dst": "custom_code",
+																			"bindCondi": "",
+																			"actionList": {
+																				"custom_code": {
+																					"inc_c": "bool screen_3_btn_1_is_click = 0;\r\nbool screen_3_btn_2_is_click = 0;\r\nbool screen_3_btn_3_is_click = 0;",
+																					"code_c": "if(screen_3_btn_1_is_click){\r\n    screen_3_btn_1_is_click = 0;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_3_img_8, 0, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_3_img_8, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_3_btn_1, lv_color_hex(0x5a5a5a), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}else{\r\n    screen_3_btn_1_is_click = 1;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_3_img_8, 255, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_3_img_8, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_3_btn_1, lv_color_hex(0xff6500), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}",
+																					"inc_py": "",
+																					"code_py": ""
+																				}
+																			}
+																		}
+																	]
+																}
+															}
+														}
 													},
 													{
 														"name": "btn_2",
@@ -25202,7 +26105,28 @@
 														"long_mode": "LV_LABEL_LONG_WRAP",
 														"text": " ",
 														"toggle": false,
-														"dropToGap": false
+														"dropToGap": false,
+														"event": {
+															"widget": {
+																"clicked": {
+																	"condition": [],
+																	"action": [
+																		{
+																			"dst": "custom_code",
+																			"bindCondi": "",
+																			"actionList": {
+																				"custom_code": {
+																					"inc_c": "",
+																					"code_c": "if(screen_3_btn_2_is_click){\r\n    screen_3_btn_2_is_click = 0;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_3_img_7, 0, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_3_img_7, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_3_btn_2, lv_color_hex(0x5a5a5a), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}else{\r\n    screen_3_btn_2_is_click = 1;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_3_img_7, 255, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_3_img_7, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_3_btn_2, lv_color_hex(0xff6500), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}",
+																					"inc_py": "",
+																					"code_py": ""
+																				}
+																			}
+																		}
+																	]
+																}
+															}
+														}
 													},
 													{
 														"name": "btn_3",
@@ -25387,7 +26311,28 @@
 														"long_mode": "LV_LABEL_LONG_WRAP",
 														"text": " ",
 														"toggle": false,
-														"dropToGap": false
+														"dropToGap": false,
+														"event": {
+															"widget": {
+																"clicked": {
+																	"condition": [],
+																	"action": [
+																		{
+																			"dst": "custom_code",
+																			"bindCondi": "",
+																			"actionList": {
+																				"custom_code": {
+																					"inc_c": "",
+																					"code_c": "if(screen_3_btn_3_is_click){\r\n    screen_3_btn_3_is_click = 0;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_3_img_9, 0, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_3_img_9, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_3_btn_3, lv_color_hex(0x5a5a5a), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}else{\r\n    screen_3_btn_3_is_click = 1;\r\n    lv_obj_set_style_img_recolor_opa(guider_ui.screen_3_img_9, 255, LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_img_recolor(guider_ui.screen_3_img_9, lv_color_hex(0x313131), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n    lv_obj_set_style_bg_color(guider_ui.screen_3_btn_3, lv_color_hex(0xff6500), LV_PART_MAIN|LV_STATE_DEFAULT);\r\n}",
+																					"inc_py": "",
+																					"code_py": ""
+																				}
+																			}
+																		}
+																	]
+																}
+															}
+														}
 													}
 												],
 												"layerName": "screen_3"
