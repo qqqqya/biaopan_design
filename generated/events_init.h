@@ -23,6 +23,7 @@ void events_init_screen_2(lv_ui *ui);
 void events_init_screen_3(lv_ui *ui);
 void events_init_top_lap(lv_ui *ui);
 void events_init_under(lv_ui *ui);
+void events_init_List_1(lv_ui *ui);
 
 #ifdef __cplusplus
 }

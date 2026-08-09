@@ -80,6 +80,13 @@ void init_scr_del_flag(lv_ui *ui)
     ui->screen_3_del = true;
     ui->top_lap_del = true;
     ui->under_del = true;
+    ui->List_1_del = true;
+    ui->heart_del = true;
+    ui->NFC_del = true;
+    ui->Map_del = true;
+    ui->QRCode_del = true;
+    ui->Sysupdate_del = true;
+    ui->Set_del = true;
 }
 
 void setup_ui(lv_ui *ui)

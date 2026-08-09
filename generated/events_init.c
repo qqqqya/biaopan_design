@@ -60,6 +60,12 @@ static void screen_1_home_event_handler (lv_event_t *e)
             ui_load_scr_animation(&guider_ui, &guider_ui.under, guider_ui.under_del, &guider_ui.screen_1_home_del, setup_scr_under, LV_SCR_LOAD_ANIM_NONE, 200, 200, true, true);
             break;
         }
+        case LV_DIR_RIGHT:
+        {
+            lv_indev_wait_release(lv_indev_get_act());
+            ui_load_scr_animation(&guider_ui, &guider_ui.List_1, guider_ui.List_1_del, &guider_ui.screen_1_home_del, setup_scr_List_1, LV_SCR_LOAD_ANIM_MOVE_RIGHT, 200, 2, true, false);
+            break;
+        }
         default:
             break;
         }
@@ -537,6 +543,145 @@ static void under_event_handler (lv_event_t *e)
 void events_init_under (lv_ui *ui)
 {
     lv_obj_add_event_cb(ui->under, under_event_handler, LV_EVENT_ALL, ui);
+}
+
+static void List_1_btn_1_event_handler (lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    switch (code) {
+    case LV_EVENT_CLICKED:
+    {
+        switch (screen_index)
+        {
+        case 0:
+            lv_indev_wait_release(lv_indev_get_act());
+            ui_load_scr_animation(&guider_ui, &guider_ui.screen_1_home, guider_ui.screen_1_home_del, &guider_ui.List_1_del, setup_scr_screen_1_home, LV_SCR_LOAD_ANIM_MOVE_RIGHT, 200, 0, true, true);
+            break;
+        case 1:
+            lv_indev_wait_release(lv_indev_get_act());
+            ui_load_scr_animation(&guider_ui, &guider_ui.screen_2, guider_ui.screen_2_del, &guider_ui.List_1_del, setup_scr_screen_2, LV_SCR_LOAD_ANIM_MOVE_RIGHT, 200, 0, true, true);
+            break;
+        case 2:
+            lv_indev_wait_release(lv_indev_get_act());
+            ui_load_scr_animation(&guider_ui, &guider_ui.screen_3, guider_ui.screen_3_del, &guider_ui.List_1_del, setup_scr_screen_3, LV_SCR_LOAD_ANIM_MOVE_RIGHT, 200, 0, true, true);
+            break;
+        default:
+            break;
+        }
+        break;
+    }
+    default:
+        break;
+    }
+}
+
+static void List_1_cont_2_event_handler (lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    switch (code) {
+    case LV_EVENT_CLICKED:
+    {
+        ui_load_scr_animation(&guider_ui, &guider_ui.heart, guider_ui.heart_del, &guider_ui.List_1_del, setup_scr_heart, LV_SCR_LOAD_ANIM_NONE, 200, 2, true, false);
+        break;
+    }
+    default:
+        break;
+    }
+}
+
+static void List_1_cont_3_event_handler (lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    switch (code) {
+    case LV_EVENT_CLICKED:
+    {
+        ui_load_scr_animation(&guider_ui, &guider_ui.Map, guider_ui.Map_del, &guider_ui.List_1_del, setup_scr_Map, LV_SCR_LOAD_ANIM_NONE, 200, 2, true, false);
+        break;
+    }
+    default:
+        break;
+    }
+}
+
+static void List_1_cont_4_event_handler (lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    switch (code) {
+    case LV_EVENT_CLICKED:
+    {
+        ui_load_scr_animation(&guider_ui, &guider_ui.NFC, guider_ui.NFC_del, &guider_ui.List_1_del, setup_scr_NFC, LV_SCR_LOAD_ANIM_NONE, 200, 2, true, false);
+        break;
+    }
+    default:
+        break;
+    }
+}
+
+static void List_1_cont_5_event_handler (lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    switch (code) {
+    case LV_EVENT_CLICKED:
+    {
+        ui_load_scr_animation(&guider_ui, &guider_ui.QRCode, guider_ui.QRCode_del, &guider_ui.List_1_del, setup_scr_QRCode, LV_SCR_LOAD_ANIM_NONE, 200, 200, true, false);
+        break;
+    }
+    default:
+        break;
+    }
+}
+
+static void List_1_cont_6_event_handler (lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    switch (code) {
+    case LV_EVENT_CLICKED:
+    {
+        ui_load_scr_animation(&guider_ui, &guider_ui.Sysupdate, guider_ui.Sysupdate_del, &guider_ui.List_1_del, setup_scr_Sysupdate, LV_SCR_LOAD_ANIM_NONE, 200, 2, true, false);
+        break;
+    }
+    default:
+        break;
+    }
+}
+
+static void List_1_cont_8_event_handler (lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    switch (code) {
+    case LV_EVENT_CLICKED:
+    {
+        ui_load_scr_animation(&guider_ui, &guider_ui.Set, guider_ui.Set_del, &guider_ui.List_1_del, setup_scr_Set, LV_SCR_LOAD_ANIM_NONE, 200, 2, true, false);
+        break;
+    }
+    default:
+        break;
+    }
+}
+
+static void List_1_cont_7_event_handler (lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    switch (code) {
+    case LV_EVENT_CLICKED:
+    {
+        break;
+    }
+    default:
+        break;
+    }
+}
+
+void events_init_List_1 (lv_ui *ui)
+{
+    lv_obj_add_event_cb(ui->List_1_btn_1, List_1_btn_1_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->List_1_cont_2, List_1_cont_2_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->List_1_cont_3, List_1_cont_3_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->List_1_cont_4, List_1_cont_4_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->List_1_cont_5, List_1_cont_5_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->List_1_cont_6, List_1_cont_6_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->List_1_cont_8, List_1_cont_8_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->List_1_cont_7, List_1_cont_7_event_handler, LV_EVENT_ALL, ui);
 }
 
 
