@@ -25,6 +25,104 @@ bool screen_2_btn_3_is_click = 0;
 bool screen_3_btn_1_is_click = 0;
 bool screen_3_btn_2_is_click = 0;
 bool screen_3_btn_3_is_click = 0;
+static lv_obj_t* list_1_obj[8];
+
+static int16_t move_distace;
+static uint8_t current_moving_index = 0;
+lv_anim_t move_anim;
+static lv_obj_t* list_1_obj[8];
+static bool is_List_visible_1;
+static bool is_List_visible_2;
+static bool is_List_visible_3;
+static bool is_List_visible_4;
+static bool is_List_visible_5;
+static bool is_List_visible_6;
+static bool is_List_visible_7;
+static bool is_List_visible_btn;
+
+static uint8_t get_last_visible_index(void) {
+    bool *visible_array[7] = {&is_List_visible_1, &is_List_visible_2, &is_List_visible_3,
+                              &is_List_visible_4, &is_List_visible_5, &is_List_visible_6, &is_List_visible_7
+                             };
+
+    for(int8_t i = 6; i >= 0; i--) {
+        if(visible_array[i]) {
+            return i;
+        }
+    }
+
+    return 0;  // 如果都不可见，返回0
+}
+
+// 向上移动其他项目的动画
+static void move_items_up(void) {
+    bool *visible_array[7] = {&is_List_visible_1, &is_List_visible_2, &is_List_visible_3,
+                              &is_List_visible_4, &is_List_visible_5, &is_List_visible_6, &is_List_visible_7
+                             };
+
+
+    for(uint8_t i = current_moving_index + 1; i < 7; i++) {
+        if(visible_array[i]) {
+            lv_anim_t a;
+            lv_anim_init(&a);
+            lv_anim_set_var(&a, list_1_obj[i]);
+            lv_anim_set_exec_cb(&a, (lv_anim_exec_xcb_t)lv_obj_set_y);
+            lv_anim_set_time(&a, 500);
+            lv_anim_set_values(&a, i * 90, (i-1) * 90);
+            lv_anim_set_path_cb(&a, lv_anim_path_ease_out);
+            lv_anim_start(&a);
+        }
+    }
+
+    // 获取最后一个可见项的索引
+    uint8_t last_visible = get_last_visible_index();
+
+    // 显示添加按钮
+    lv_obj_clear_flag(list_1_obj[7], LV_OBJ_FLAG_HIDDEN);
+    is_List_visible_btn = true;
+
+    // 移动添加按钮
+    lv_anim_t a;
+    lv_anim_init(&a);
+    lv_anim_set_var(&a, list_1_obj[7]);
+    lv_anim_set_exec_cb(&a, (lv_anim_exec_xcb_t)lv_obj_set_y);
+    lv_anim_set_time(&a, 500);
+    lv_anim_set_values(&a, (last_visible + 1) * 90, (last_visible ) * 90);
+    lv_anim_set_path_cb(&a, lv_anim_path_ease_out);
+    lv_anim_start(&a);
+}
+
+void clear_flage(lv_anim_t *a) {
+    lv_obj_t* obj=a->var;
+    lv_obj_add_flag(obj,LV_OBJ_FLAG_CLICKABLE);
+// 设置该项为不可见
+    if(list_1_obj[0] == obj) {
+        is_List_visible_1 = false;
+    }
+    else if(list_1_obj[1] == obj)
+    {
+        is_List_visible_2 = false;
+    }
+    else if(list_1_obj[2] == obj) {
+        is_List_visible_3 = false;
+    }
+    else if(list_1_obj[3] == obj) {
+        is_List_visible_4 = false;
+    }
+    else if(list_1_obj[4] == obj) {
+        is_List_visible_5 = false;
+    }
+    else if(list_1_obj[5] == obj) {
+        is_List_visible_6 = false;
+    }
+    else if(list_1_obj[6] == obj) {
+        is_List_visible_7 = false;
+    }
+
+//  move_items_up();
+}
+// 如果所有项都已显示,隐藏添加按钮
+bool all_visible = true;
 
 static void screen_1_home_event_handler (lv_event_t *e)
 {
@@ -545,6 +643,27 @@ void events_init_under (lv_ui *ui)
     lv_obj_add_event_cb(ui->under, under_event_handler, LV_EVENT_ALL, ui);
 }
 
+static void List_1_event_handler (lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    switch (code) {
+    case LV_EVENT_SCREEN_LOADED:
+    {
+        list_1_obj[0]=guider_ui.List_1_cont_2;
+        list_1_obj[1]=guider_ui.List_1_cont_3;
+        list_1_obj[2]=guider_ui.List_1_cont_4;
+        list_1_obj[3]=guider_ui.List_1_cont_5;
+        list_1_obj[4]=guider_ui.List_1_cont_6;
+        list_1_obj[5]=guider_ui.List_1_cont_7;
+        list_1_obj[6]=guider_ui.List_1_cont_8;
+        list_1_obj[7]=guider_ui.List_1_btn_2;
+        break;
+    }
+    default:
+        break;
+    }
+}
+
 static void List_1_btn_1_event_handler (lv_event_t *e)
 {
     lv_event_code_t code = lv_event_get_code(e);
@@ -584,6 +703,66 @@ static void List_1_cont_2_event_handler (lv_event_t *e)
         ui_load_scr_animation(&guider_ui, &guider_ui.heart, guider_ui.heart_del, &guider_ui.List_1_del, setup_scr_heart, LV_SCR_LOAD_ANIM_NONE, 200, 2, true, false);
         break;
     }
+    case LV_EVENT_PRESSING:
+    {
+        lv_obj_t* obj = lv_event_get_target(e); //获取事件产生的对象
+        lv_indev_t* indev = lv_indev_get_act();  //获取活动界面输入设备
+        lv_point_t vect;
+        lv_indev_get_vect(indev, &vect); //获取vect point
+        lv_coord_t x = lv_obj_get_x(obj) + vect.x; //计算x
+        move_distace=x;
+        // 获取当前移动项的索引
+        for(uint8_t i = 0; i < 7; i++) {
+            if(list_1_obj[i] == obj) {
+                current_moving_index = i;
+                break;
+            }
+        }
+        if(move_distace<100&&move_distace>0) {
+            lv_obj_set_x(obj, x); //移动对象到x,y
+        }
+        if(move_distace>100) {
+            lv_obj_clear_flag(obj,LV_OBJ_FLAG_CLICKABLE);
+            lv_anim_init(&move_anim);
+            lv_anim_set_var(&move_anim, obj);                      // 要移动的对象
+            lv_anim_set_exec_cb(&move_anim, (lv_anim_exec_xcb_t)lv_obj_set_x); // 修改x坐标
+            lv_anim_set_time(&move_anim,(lv_coord_t)1500);                      // 动画持续时间500ms
+            lv_anim_set_values(&move_anim,lv_obj_get_x(obj), 240); // 从当前位置到240
+            lv_anim_set_path_cb(&move_anim, lv_anim_path_overshoot); // 使用overshoot路径
+            lv_anim_set_ready_cb(&move_anim,(lv_anim_ready_cb_t)clear_flage);
+            lv_anim_start(&move_anim);
+        }
+
+
+        //     lv_obj_t* obj = lv_event_get_target(e); //获取事件产生的对象
+        //     lv_indev_t* indev = lv_indev_get_act();  //获取活动界面输入设备
+        //     lv_point_t vect;
+        //     lv_indev_get_vect(indev, &vect); //获取vect point
+        //     lv_coord_t x = lv_obj_get_x(obj) + vect.x; //计算x
+        //     move_distace=x;
+        //     // 获取当前移动项的索引
+        //     for(uint8_t i = 0; i < 7; i++) {
+        //         if(list_1_obj[i] == obj) {
+        //             current_moving_index = i;
+        //             break;
+        //         }
+        //     }
+        //     if(move_distace<100&&move_distace>0){
+        //          lv_obj_set_x(obj, x); //移动对象到x,y
+        //     }
+        //     if(move_distace>100){
+        //     lv_obj_clear_flag(obj,LV_OBJ_FLAG_CLICKABLE);
+        //     lv_anim_init(&move_anim);
+        //     lv_anim_set_var(&move_anim, obj);                      // 要移动的对象
+        //     lv_anim_set_exec_cb(&move_anim, (lv_anim_exec_xcb_t)lv_obj_set_x); // 修改x坐标
+        //     lv_anim_set_time(&move_anim,(lv_coord_t)1500);                      // 动画持续时间500ms
+        //     lv_anim_set_values(&move_anim,lv_obj_get_x(obj), 240); // 从当前位置到240
+        //     lv_anim_set_path_cb(&move_anim, lv_anim_path_overshoot); // 使用overshoot路径
+        //     lv_anim_set_ready_cb(&move_anim,(lv_anim_ready_cb_t)clear_flage);
+        //     lv_anim_start(&move_anim);
+        //  }
+        break;
+    }
     default:
         break;
     }
@@ -596,6 +775,37 @@ static void List_1_cont_3_event_handler (lv_event_t *e)
     case LV_EVENT_CLICKED:
     {
         ui_load_scr_animation(&guider_ui, &guider_ui.Map, guider_ui.Map_del, &guider_ui.List_1_del, setup_scr_Map, LV_SCR_LOAD_ANIM_NONE, 200, 2, true, false);
+        break;
+    }
+    case LV_EVENT_PRESSING:
+    {
+        lv_obj_t* obj = lv_event_get_target(e); //获取事件产生的对象
+        lv_indev_t* indev = lv_indev_get_act();  //获取活动界面输入设备
+        lv_point_t vect;
+        lv_indev_get_vect(indev, &vect); //获取vect point
+        lv_coord_t x = lv_obj_get_x(obj) + vect.x; //计算x
+        move_distace=x;
+        // 获取当前移动项的索引
+        for(uint8_t i = 0; i < 7; i++) {
+            if(list_1_obj[i] == obj) {
+                current_moving_index = i;
+                break;
+            }
+        }
+        if(move_distace<100&&move_distace>0) {
+            lv_obj_set_x(obj, x); //移动对象到x,y
+        }
+        if(move_distace>100) {
+            lv_obj_clear_flag(obj,LV_OBJ_FLAG_CLICKABLE);
+            lv_anim_init(&move_anim);
+            lv_anim_set_var(&move_anim, obj);                      // 要移动的对象
+            lv_anim_set_exec_cb(&move_anim, (lv_anim_exec_xcb_t)lv_obj_set_x); // 修改x坐标
+            lv_anim_set_time(&move_anim,(lv_coord_t)1500);                      // 动画持续时间500ms
+            lv_anim_set_values(&move_anim,lv_obj_get_x(obj), 240); // 从当前位置到240
+            lv_anim_set_path_cb(&move_anim, lv_anim_path_overshoot); // 使用overshoot路径
+            lv_anim_set_ready_cb(&move_anim,(lv_anim_ready_cb_t)clear_flage);
+            lv_anim_start(&move_anim);
+        }
         break;
     }
     default:
@@ -612,6 +822,37 @@ static void List_1_cont_4_event_handler (lv_event_t *e)
         ui_load_scr_animation(&guider_ui, &guider_ui.NFC, guider_ui.NFC_del, &guider_ui.List_1_del, setup_scr_NFC, LV_SCR_LOAD_ANIM_NONE, 200, 2, true, false);
         break;
     }
+    case LV_EVENT_PRESSING:
+    {
+        lv_obj_t* obj = lv_event_get_target(e); //获取事件产生的对象
+        lv_indev_t* indev = lv_indev_get_act();  //获取活动界面输入设备
+        lv_point_t vect;
+        lv_indev_get_vect(indev, &vect); //获取vect point
+        lv_coord_t x = lv_obj_get_x(obj) + vect.x; //计算x
+        move_distace=x;
+        // 获取当前移动项的索引
+        for(uint8_t i = 0; i < 7; i++) {
+            if(list_1_obj[i] == obj) {
+                current_moving_index = i;
+                break;
+            }
+        }
+        if(move_distace<100&&move_distace>0) {
+            lv_obj_set_x(obj, x); //移动对象到x,y
+        }
+        if(move_distace>100) {
+            lv_obj_clear_flag(obj,LV_OBJ_FLAG_CLICKABLE);
+            lv_anim_init(&move_anim);
+            lv_anim_set_var(&move_anim, obj);                      // 要移动的对象
+            lv_anim_set_exec_cb(&move_anim, (lv_anim_exec_xcb_t)lv_obj_set_x); // 修改x坐标
+            lv_anim_set_time(&move_anim,(lv_coord_t)1500);                      // 动画持续时间500ms
+            lv_anim_set_values(&move_anim,lv_obj_get_x(obj), 240); // 从当前位置到240
+            lv_anim_set_path_cb(&move_anim, lv_anim_path_overshoot); // 使用overshoot路径
+            lv_anim_set_ready_cb(&move_anim,(lv_anim_ready_cb_t)clear_flage);
+            lv_anim_start(&move_anim);
+        }
+        break;
+    }
     default:
         break;
     }
@@ -624,6 +865,37 @@ static void List_1_cont_5_event_handler (lv_event_t *e)
     case LV_EVENT_CLICKED:
     {
         ui_load_scr_animation(&guider_ui, &guider_ui.QRCode, guider_ui.QRCode_del, &guider_ui.List_1_del, setup_scr_QRCode, LV_SCR_LOAD_ANIM_NONE, 200, 200, true, false);
+        break;
+    }
+    case LV_EVENT_PRESSING:
+    {
+        lv_obj_t* obj = lv_event_get_target(e); //获取事件产生的对象
+        lv_indev_t* indev = lv_indev_get_act();  //获取活动界面输入设备
+        lv_point_t vect;
+        lv_indev_get_vect(indev, &vect); //获取vect point
+        lv_coord_t x = lv_obj_get_x(obj) + vect.x; //计算x
+        move_distace=x;
+        // 获取当前移动项的索引
+        for(uint8_t i = 0; i < 7; i++) {
+            if(list_1_obj[i] == obj) {
+                current_moving_index = i;
+                break;
+            }
+        }
+        if(move_distace<100&&move_distace>0) {
+            lv_obj_set_x(obj, x); //移动对象到x,y
+        }
+        if(move_distace>100) {
+            lv_obj_clear_flag(obj,LV_OBJ_FLAG_CLICKABLE);
+            lv_anim_init(&move_anim);
+            lv_anim_set_var(&move_anim, obj);                      // 要移动的对象
+            lv_anim_set_exec_cb(&move_anim, (lv_anim_exec_xcb_t)lv_obj_set_x); // 修改x坐标
+            lv_anim_set_time(&move_anim,(lv_coord_t)1500);                      // 动画持续时间500ms
+            lv_anim_set_values(&move_anim,lv_obj_get_x(obj), 240); // 从当前位置到240
+            lv_anim_set_path_cb(&move_anim, lv_anim_path_overshoot); // 使用overshoot路径
+            lv_anim_set_ready_cb(&move_anim,(lv_anim_ready_cb_t)clear_flage);
+            lv_anim_start(&move_anim);
+        }
         break;
     }
     default:
@@ -640,18 +912,35 @@ static void List_1_cont_6_event_handler (lv_event_t *e)
         ui_load_scr_animation(&guider_ui, &guider_ui.Sysupdate, guider_ui.Sysupdate_del, &guider_ui.List_1_del, setup_scr_Sysupdate, LV_SCR_LOAD_ANIM_NONE, 200, 2, true, false);
         break;
     }
-    default:
-        break;
-    }
-}
-
-static void List_1_cont_8_event_handler (lv_event_t *e)
-{
-    lv_event_code_t code = lv_event_get_code(e);
-    switch (code) {
-    case LV_EVENT_CLICKED:
+    case LV_EVENT_PRESSING:
     {
-        ui_load_scr_animation(&guider_ui, &guider_ui.Set, guider_ui.Set_del, &guider_ui.List_1_del, setup_scr_Set, LV_SCR_LOAD_ANIM_NONE, 200, 2, true, false);
+        lv_obj_t* obj = lv_event_get_target(e); //获取事件产生的对象
+        lv_indev_t* indev = lv_indev_get_act();  //获取活动界面输入设备
+        lv_point_t vect;
+        lv_indev_get_vect(indev, &vect); //获取vect point
+        lv_coord_t x = lv_obj_get_x(obj) + vect.x; //计算x
+        move_distace=x;
+        // 获取当前移动项的索引
+        for(uint8_t i = 0; i < 7; i++) {
+            if(list_1_obj[i] == obj) {
+                current_moving_index = i;
+                break;
+            }
+        }
+        if(move_distace<100&&move_distace>0) {
+            lv_obj_set_x(obj, x); //移动对象到x,y
+        }
+        if(move_distace>100) {
+            lv_obj_clear_flag(obj,LV_OBJ_FLAG_CLICKABLE);
+            lv_anim_init(&move_anim);
+            lv_anim_set_var(&move_anim, obj);                      // 要移动的对象
+            lv_anim_set_exec_cb(&move_anim, (lv_anim_exec_xcb_t)lv_obj_set_x); // 修改x坐标
+            lv_anim_set_time(&move_anim,(lv_coord_t)1500);                      // 动画持续时间500ms
+            lv_anim_set_values(&move_anim,lv_obj_get_x(obj), 240); // 从当前位置到240
+            lv_anim_set_path_cb(&move_anim, lv_anim_path_overshoot); // 使用overshoot路径
+            lv_anim_set_ready_cb(&move_anim,(lv_anim_ready_cb_t)clear_flage);
+            lv_anim_start(&move_anim);
+        }
         break;
     }
     default:
@@ -665,6 +954,131 @@ static void List_1_cont_7_event_handler (lv_event_t *e)
     switch (code) {
     case LV_EVENT_CLICKED:
     {
+        ui_load_scr_animation(&guider_ui, &guider_ui.Set, guider_ui.Set_del, &guider_ui.List_1_del, setup_scr_Set, LV_SCR_LOAD_ANIM_NONE, 200, 2, true, false);
+        break;
+    }
+    case LV_EVENT_PRESSING:
+    {
+        lv_obj_t* obj = lv_event_get_target(e); //获取事件产生的对象
+        lv_indev_t* indev = lv_indev_get_act();  //获取活动界面输入设备
+        lv_point_t vect;
+        lv_indev_get_vect(indev, &vect); //获取vect point
+        lv_coord_t x = lv_obj_get_x(obj) + vect.x; //计算x
+        move_distace=x;
+        // 获取当前移动项的索引
+        for(uint8_t i = 0; i < 7; i++) {
+            if(list_1_obj[i] == obj) {
+                current_moving_index = i;
+                break;
+            }
+        }
+        if(move_distace<100&&move_distace>0) {
+            lv_obj_set_x(obj, x); //移动对象到x,y
+        }
+        if(move_distace>100) {
+            lv_obj_clear_flag(obj,LV_OBJ_FLAG_CLICKABLE);
+            lv_anim_init(&move_anim);
+            lv_anim_set_var(&move_anim, obj);                      // 要移动的对象
+            lv_anim_set_exec_cb(&move_anim, (lv_anim_exec_xcb_t)lv_obj_set_x); // 修改x坐标
+            lv_anim_set_time(&move_anim,(lv_coord_t)1500);                      // 动画持续时间500ms
+            lv_anim_set_values(&move_anim,lv_obj_get_x(obj), 240); // 从当前位置到240
+            lv_anim_set_path_cb(&move_anim, lv_anim_path_overshoot); // 使用overshoot路径
+            lv_anim_set_ready_cb(&move_anim,(lv_anim_ready_cb_t)clear_flage);
+            lv_anim_start(&move_anim);
+        }
+        break;
+    }
+    default:
+        break;
+    }
+}
+
+static void List_1_cont_8_event_handler (lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    switch (code) {
+    case LV_EVENT_CLICKED:
+    {
+        ui_load_scr_animation(&guider_ui, &guider_ui.Set, guider_ui.Set_del, &guider_ui.List_1_del, setup_scr_Set, LV_SCR_LOAD_ANIM_NONE, 200, 2, true, true);
+        break;
+    }
+    case LV_EVENT_PRESSING:
+    {
+        lv_obj_t* obj = lv_event_get_target(e); //获取事件产生的对象
+        lv_indev_t* indev = lv_indev_get_act();  //获取活动界面输入设备
+        lv_point_t vect;
+        lv_indev_get_vect(indev, &vect); //获取vect point
+        lv_coord_t x = lv_obj_get_x(obj) + vect.x; //计算x
+        move_distace=x;
+        // 获取当前移动项的索引
+        for(uint8_t i = 0; i < 7; i++) {
+            if(list_1_obj[i] == obj) {
+                current_moving_index = i;
+                break;
+            }
+        }
+        if(move_distace<100&&move_distace>0) {
+            lv_obj_set_x(obj, x); //移动对象到x,y
+        }
+        if(move_distace>100) {
+            lv_obj_clear_flag(obj,LV_OBJ_FLAG_CLICKABLE);
+            lv_anim_init(&move_anim);
+            lv_anim_set_var(&move_anim, obj);                      // 要移动的对象
+            lv_anim_set_exec_cb(&move_anim, (lv_anim_exec_xcb_t)lv_obj_set_x); // 修改x坐标
+            lv_anim_set_time(&move_anim,(lv_coord_t)1500);                      // 动画持续时间500ms
+            lv_anim_set_values(&move_anim,lv_obj_get_x(obj), 240); // 从当前位置到240
+            lv_anim_set_path_cb(&move_anim, lv_anim_path_overshoot); // 使用overshoot路径
+            lv_anim_set_ready_cb(&move_anim,(lv_anim_ready_cb_t)clear_flage);
+            lv_anim_start(&move_anim);
+        }
+        break;
+    }
+    default:
+        break;
+    }
+}
+
+static void List_1_btn_2_event_handler (lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    switch (code) {
+    case LV_EVENT_CLICKED:
+    {
+        bool* visible_array[7] = {&is_List_visible_1, &is_List_visible_2, &is_List_visible_3,
+                                  &is_List_visible_4, &is_List_visible_5, &is_List_visible_6, &is_List_visible_7
+                                 };
+
+        // 查找第一个被移除的项
+        for(uint8_t i = 0; i < 7; i++) {
+            if(!(*visible_array[i])) {
+                // 重新显示该项
+                *visible_array[i] = true;
+                lv_obj_clear_flag(list_1_obj[i], LV_OBJ_FLAG_HIDDEN);
+
+                // 设置初始位置并启动动画
+                // lv_obj_set_y(list_1_obj[i], 610);
+                lv_anim_t a;
+                lv_anim_init(&a);
+                lv_anim_set_var(&a, list_1_obj[i]);
+                lv_anim_set_exec_cb(&a, (lv_anim_exec_xcb_t)lv_obj_set_x);
+                lv_anim_set_time(&a, 500);
+                lv_anim_set_values(&a, lv_obj_get_x(list_1_obj[i]), 0);
+                lv_anim_set_path_cb(&a, lv_anim_path_overshoot);
+                lv_anim_start(&a);
+
+                for(uint8_t j = 0; j < 7; j++) {
+                    if(!(*visible_array[j])) {
+                        all_visible = false;
+                        break;
+                    }
+                }
+                if(all_visible) {
+                    lv_obj_add_flag(list_1_obj[7], LV_OBJ_FLAG_HIDDEN);
+                    is_List_visible_btn = false;
+                }
+
+            }
+        }
         break;
     }
     default:
@@ -674,14 +1088,54 @@ static void List_1_cont_7_event_handler (lv_event_t *e)
 
 void events_init_List_1 (lv_ui *ui)
 {
+    lv_obj_add_event_cb(ui->List_1, List_1_event_handler, LV_EVENT_ALL, ui);
     lv_obj_add_event_cb(ui->List_1_btn_1, List_1_btn_1_event_handler, LV_EVENT_ALL, ui);
     lv_obj_add_event_cb(ui->List_1_cont_2, List_1_cont_2_event_handler, LV_EVENT_ALL, ui);
     lv_obj_add_event_cb(ui->List_1_cont_3, List_1_cont_3_event_handler, LV_EVENT_ALL, ui);
     lv_obj_add_event_cb(ui->List_1_cont_4, List_1_cont_4_event_handler, LV_EVENT_ALL, ui);
     lv_obj_add_event_cb(ui->List_1_cont_5, List_1_cont_5_event_handler, LV_EVENT_ALL, ui);
     lv_obj_add_event_cb(ui->List_1_cont_6, List_1_cont_6_event_handler, LV_EVENT_ALL, ui);
-    lv_obj_add_event_cb(ui->List_1_cont_8, List_1_cont_8_event_handler, LV_EVENT_ALL, ui);
     lv_obj_add_event_cb(ui->List_1_cont_7, List_1_cont_7_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->List_1_cont_8, List_1_cont_8_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->List_1_btn_2, List_1_btn_2_event_handler, LV_EVENT_ALL, ui);
+}
+
+static void Set_cont_1_event_handler (lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    switch (code) {
+    case LV_EVENT_CLICKED:
+    {
+
+        break;
+    }
+    default:
+        break;
+    }
+}
+
+void events_init_Set (lv_ui *ui)
+{
+    lv_obj_add_event_cb(ui->Set_cont_1, Set_cont_1_event_handler, LV_EVENT_ALL, ui);
+}
+
+static void heart_btn_1_event_handler (lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    switch (code) {
+    case LV_EVENT_CLICKED:
+    {
+        ui_load_scr_animation(&guider_ui, &guider_ui.List_1, guider_ui.List_1_del, &guider_ui.heart_del, setup_scr_List_1, LV_SCR_LOAD_ANIM_NONE, 200, 2, true, true);
+        break;
+    }
+    default:
+        break;
+    }
+}
+
+void events_init_heart (lv_ui *ui)
+{
+    lv_obj_add_event_cb(ui->heart_btn_1, heart_btn_1_event_handler, LV_EVENT_ALL, ui);
 }
 
 
