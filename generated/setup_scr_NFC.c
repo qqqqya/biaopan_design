@@ -24,7 +24,9 @@ void setup_scr_NFC(lv_ui *ui)
     lv_obj_set_scrollbar_mode(ui->NFC, LV_SCROLLBAR_MODE_OFF);
 
     //Write style for NFC, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
-    lv_obj_set_style_bg_opa(ui->NFC, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_opa(ui->NFC, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_color(ui->NFC, lv_color_hex(0x000000), LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_grad_dir(ui->NFC, LV_GRAD_DIR_NONE, LV_PART_MAIN|LV_STATE_DEFAULT);
 
     //Write codes NFC_Label1
     ui->NFC_Label1 = lv_label_create(ui->NFC);
@@ -36,7 +38,7 @@ void setup_scr_NFC(lv_ui *ui)
     //Write style for NFC_Label1, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
     lv_obj_set_style_border_width(ui->NFC_Label1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_radius(ui->NFC_Label1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_text_color(ui->NFC_Label1, lv_color_hex(0x000000), LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_color(ui->NFC_Label1, lv_color_hex(0xffffff), LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_text_font(ui->NFC_Label1, &lv_font_montserratMedium_16, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_text_opa(ui->NFC_Label1, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_text_letter_space(ui->NFC_Label1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
@@ -49,10 +51,33 @@ void setup_scr_NFC(lv_ui *ui)
     lv_obj_set_style_pad_left(ui->NFC_Label1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_shadow_width(ui->NFC_Label1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
 
+    //Write codes NFC_btn_1
+    ui->NFC_btn_1 = lv_btn_create(ui->NFC);
+    ui->NFC_btn_1_label = lv_label_create(ui->NFC_btn_1);
+    lv_label_set_text(ui->NFC_btn_1_label, "< Menu");
+    lv_label_set_long_mode(ui->NFC_btn_1_label, LV_LABEL_LONG_WRAP);
+    lv_obj_align(ui->NFC_btn_1_label, LV_ALIGN_CENTER, 0, 0);
+    lv_obj_set_style_pad_all(ui->NFC_btn_1, 0, LV_STATE_DEFAULT);
+    lv_obj_set_width(ui->NFC_btn_1_label, LV_PCT(100));
+    lv_obj_set_pos(ui->NFC_btn_1, 19, 14);
+    lv_obj_set_size(ui->NFC_btn_1, 70, 32);
+
+    //Write style for NFC_btn_1, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
+    lv_obj_set_style_bg_opa(ui->NFC_btn_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_border_width(ui->NFC_btn_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_radius(ui->NFC_btn_1, 5, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_shadow_width(ui->NFC_btn_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_color(ui->NFC_btn_1, lv_color_hex(0xffffff), LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_font(ui->NFC_btn_1, &lv_font_montserratMedium_16, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_opa(ui->NFC_btn_1, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_align(ui->NFC_btn_1, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN|LV_STATE_DEFAULT);
+
     //The custom code of NFC.
 
 
     //Update current screen layout.
     lv_obj_update_layout(ui->NFC);
 
+    //Init events for screen.
+    events_init_NFC(ui);
 }

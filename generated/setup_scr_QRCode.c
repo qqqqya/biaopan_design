@@ -16,43 +16,68 @@
 
 
 
-void setup_scr_QRCode(lv_ui *ui)
+void setup_scr_QRcode(lv_ui *ui)
 {
-    //Write codes QRCode
-    ui->QRCode = lv_obj_create(NULL);
-    lv_obj_set_size(ui->QRCode, 240, 280);
-    lv_obj_set_scrollbar_mode(ui->QRCode, LV_SCROLLBAR_MODE_OFF);
+    //Write codes QRcode
+    ui->QRcode = lv_obj_create(NULL);
+    lv_obj_set_size(ui->QRcode, 240, 280);
+    lv_obj_set_scrollbar_mode(ui->QRcode, LV_SCROLLBAR_MODE_OFF);
 
-    //Write style for QRCode, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
-    lv_obj_set_style_bg_opa(ui->QRCode, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    //Write style for QRcode, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
+    lv_obj_set_style_bg_opa(ui->QRcode, 252, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_color(ui->QRcode, lv_color_hex(0x000000), LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_grad_dir(ui->QRcode, LV_GRAD_DIR_NONE, LV_PART_MAIN|LV_STATE_DEFAULT);
 
-    //Write codes QRCode_label_1
-    ui->QRCode_label_1 = lv_label_create(ui->QRCode);
-    lv_label_set_text(ui->QRCode_label_1, "QRCode");
-    lv_label_set_long_mode(ui->QRCode_label_1, LV_LABEL_LONG_WRAP);
-    lv_obj_set_pos(ui->QRCode_label_1, 70, 124);
-    lv_obj_set_size(ui->QRCode_label_1, 100, 32);
+    //Write codes QRcode_label_1
+    ui->QRcode_label_1 = lv_label_create(ui->QRcode);
+    lv_label_set_text(ui->QRcode_label_1, "QRCode");
+    lv_label_set_long_mode(ui->QRcode_label_1, LV_LABEL_LONG_WRAP);
+    lv_obj_set_pos(ui->QRcode_label_1, 70, 124);
+    lv_obj_set_size(ui->QRcode_label_1, 100, 32);
 
-    //Write style for QRCode_label_1, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
-    lv_obj_set_style_border_width(ui->QRCode_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_radius(ui->QRCode_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_text_color(ui->QRCode_label_1, lv_color_hex(0x000000), LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_text_font(ui->QRCode_label_1, &lv_font_montserratMedium_16, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_text_opa(ui->QRCode_label_1, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_text_letter_space(ui->QRCode_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_text_line_space(ui->QRCode_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_text_align(ui->QRCode_label_1, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_bg_opa(ui->QRCode_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_pad_top(ui->QRCode_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_pad_right(ui->QRCode_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_pad_bottom(ui->QRCode_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_pad_left(ui->QRCode_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_shadow_width(ui->QRCode_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    //Write style for QRcode_label_1, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
+    lv_obj_set_style_border_width(ui->QRcode_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_radius(ui->QRcode_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_color(ui->QRcode_label_1, lv_color_hex(0xffffff), LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_font(ui->QRcode_label_1, &lv_font_montserratMedium_16, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_opa(ui->QRcode_label_1, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_letter_space(ui->QRcode_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_line_space(ui->QRcode_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_align(ui->QRcode_label_1, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_opa(ui->QRcode_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_top(ui->QRcode_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_right(ui->QRcode_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_bottom(ui->QRcode_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_left(ui->QRcode_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_shadow_width(ui->QRcode_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
 
-    //The custom code of QRCode.
+    //Write codes QRcode_btn_1
+    ui->QRcode_btn_1 = lv_btn_create(ui->QRcode);
+    ui->QRcode_btn_1_label = lv_label_create(ui->QRcode_btn_1);
+    lv_label_set_text(ui->QRcode_btn_1_label, "< Menu");
+    lv_label_set_long_mode(ui->QRcode_btn_1_label, LV_LABEL_LONG_WRAP);
+    lv_obj_align(ui->QRcode_btn_1_label, LV_ALIGN_CENTER, 0, 0);
+    lv_obj_set_style_pad_all(ui->QRcode_btn_1, 0, LV_STATE_DEFAULT);
+    lv_obj_set_width(ui->QRcode_btn_1_label, LV_PCT(100));
+    lv_obj_set_pos(ui->QRcode_btn_1, 19, 14);
+    lv_obj_set_size(ui->QRcode_btn_1, 70, 32);
+
+    //Write style for QRcode_btn_1, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
+    lv_obj_set_style_bg_opa(ui->QRcode_btn_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_border_width(ui->QRcode_btn_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_radius(ui->QRcode_btn_1, 5, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_shadow_width(ui->QRcode_btn_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_color(ui->QRcode_btn_1, lv_color_hex(0xffffff), LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_font(ui->QRcode_btn_1, &lv_font_montserratMedium_16, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_opa(ui->QRcode_btn_1, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_align(ui->QRcode_btn_1, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN|LV_STATE_DEFAULT);
+
+    //The custom code of QRcode.
 
 
     //Update current screen layout.
-    lv_obj_update_layout(ui->QRCode);
+    lv_obj_update_layout(ui->QRcode);
 
+    //Init events for screen.
+    events_init_QRcode(ui);
 }

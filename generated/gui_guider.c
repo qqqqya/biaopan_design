@@ -82,12 +82,13 @@ void init_scr_del_flag(lv_ui *ui)
     ui->under_del = true;
     ui->List_1_del = true;
     ui->List_2_del = true;
+    ui->List_3_del = true;
     ui->Set_del = true;
-    ui->heart_del = true;
+    ui->Heart_del = true;
     ui->NFC_del = true;
     ui->Map_del = true;
-    ui->QRCode_del = true;
-    ui->Sysupdate_del = true;
+    ui->QRcode_del = true;
+    ui->Systeamupdate_del = true;
 }
 
 void setup_ui(lv_ui *ui)

@@ -25,8 +25,13 @@ void events_init_top_lap(lv_ui *ui);
 void events_init_under(lv_ui *ui);
 void events_init_List_1(lv_ui *ui);
 void events_init_List_2(lv_ui *ui);
+void events_init_List_3(lv_ui *ui);
 void events_init_Set(lv_ui *ui);
-void events_init_heart(lv_ui *ui);
+void events_init_Heart(lv_ui *ui);
+void events_init_NFC(lv_ui *ui);
+void events_init_Map(lv_ui *ui);
+void events_init_QRcode(lv_ui *ui);
+void events_init_Systeamupdate(lv_ui *ui);
 
 #ifdef __cplusplus
 }

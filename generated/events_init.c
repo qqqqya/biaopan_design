@@ -124,6 +124,61 @@ void clear_flage(lv_anim_t *a) {
 // 如果所有项都已显示,隐藏添加按钮
 bool all_visible = true;
 static uint16_t level;
+#define menu_3_cnt 7
+lv_obj_t* scroll_obj[menu_3_cnt];
+#include <stdlib.h>
+static uint16_t last_angle = 0;
+static lv_sqrt_res_t radius;
+#define CENTER_X 120
+#define CENTER_Y 140
+#define menu_3_cnt 7
+// 初始坐标
+static lv_point_t initial_points[menu_3_cnt] = {
+    {100, 30},
+    {190, 80},
+    {190, 170},
+    {150, 220},
+    {70, 220},
+    {20, 170},
+    {20, 80}
+};
+//起始点
+lv_point_t start_point;
+bool is_pissing=0;
+lv_obj_t* scroll_obj[menu_3_cnt];
+int get_touch_quadrant() {
+    // 获取屏幕分辨率
+    lv_coord_t screen_width = lv_disp_get_hor_res(NULL);
+    lv_coord_t screen_height = lv_disp_get_ver_res(NULL);
+
+    // 计算屏幕中心
+    lv_point_t center = {
+        .x = screen_width / 2,
+        .y = screen_height / 2
+    };
+
+    // 获取触摸点
+    lv_indev_t *indev = lv_indev_get_act();
+    lv_point_t point;
+    lv_indev_get_point(indev, &point);
+
+    // 计算相对坐标（注意 y 轴方向反转）
+    int32_t rel_x = point.x - center.x;
+    int32_t rel_y = -(point.y - center.y);
+
+    // 判断象限
+    if (rel_x > 0 && rel_y > 0) {
+        return 1;
+    } else if (rel_x < 0 && rel_y > 0) {
+        return 2;
+    } else if (rel_x < 0 && rel_y < 0) {
+        return 3;
+    } else if (rel_x > 0 && rel_y < 0) {
+        return 4;
+    } else {
+        return 0; // 位于坐标轴上
+    }
+}
 uint16_t mode=0;
 
 static void screen_1_home_event_handler (lv_event_t *e)
@@ -702,7 +757,7 @@ static void List_1_cont_2_event_handler (lv_event_t *e)
     switch (code) {
     case LV_EVENT_CLICKED:
     {
-        ui_load_scr_animation(&guider_ui, &guider_ui.heart, guider_ui.heart_del, &guider_ui.List_1_del, setup_scr_heart, LV_SCR_LOAD_ANIM_NONE, 200, 2, true, false);
+        ui_load_scr_animation(&guider_ui, &guider_ui.Heart, guider_ui.Heart_del, &guider_ui.List_1_del, setup_scr_Heart, LV_SCR_LOAD_ANIM_NONE, 200, 2, true, false);
         break;
     }
     case LV_EVENT_PRESSING:
@@ -866,7 +921,7 @@ static void List_1_cont_5_event_handler (lv_event_t *e)
     switch (code) {
     case LV_EVENT_CLICKED:
     {
-        ui_load_scr_animation(&guider_ui, &guider_ui.QRCode, guider_ui.QRCode_del, &guider_ui.List_1_del, setup_scr_QRCode, LV_SCR_LOAD_ANIM_NONE, 200, 200, true, false);
+        ui_load_scr_animation(&guider_ui, &guider_ui.QRcode, guider_ui.QRcode_del, &guider_ui.List_1_del, setup_scr_QRcode, LV_SCR_LOAD_ANIM_NONE, 200, 200, true, false);
         break;
     }
     case LV_EVENT_PRESSING:
@@ -911,7 +966,7 @@ static void List_1_cont_6_event_handler (lv_event_t *e)
     switch (code) {
     case LV_EVENT_CLICKED:
     {
-        ui_load_scr_animation(&guider_ui, &guider_ui.Sysupdate, guider_ui.Sysupdate_del, &guider_ui.List_1_del, setup_scr_Sysupdate, LV_SCR_LOAD_ANIM_NONE, 200, 2, true, false);
+        ui_load_scr_animation(&guider_ui, &guider_ui.Systeamupdate, guider_ui.Systeamupdate_del, &guider_ui.List_1_del, setup_scr_Systeamupdate, LV_SCR_LOAD_ANIM_NONE, 200, 2, true, false);
         break;
     }
     case LV_EVENT_PRESSING:
@@ -1318,6 +1373,36 @@ static void List_2_event_handler (lv_event_t *e)
     }
 }
 
+static void List_2_btn_1_event_handler (lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    switch (code) {
+    case LV_EVENT_CLICKED:
+    {
+        switch (screen_index)
+        {
+        case 0:
+            lv_indev_wait_release(lv_indev_get_act());
+            ui_load_scr_animation(&guider_ui, &guider_ui.screen_1_home, guider_ui.screen_1_home_del, &guider_ui.List_1_del, setup_scr_screen_1_home, LV_SCR_LOAD_ANIM_MOVE_RIGHT, 200, 0, true, true);
+            break;
+        case 1:
+            lv_indev_wait_release(lv_indev_get_act());
+            ui_load_scr_animation(&guider_ui, &guider_ui.screen_2, guider_ui.screen_2_del, &guider_ui.List_1_del, setup_scr_screen_2, LV_SCR_LOAD_ANIM_MOVE_RIGHT, 200, 0, true, true);
+            break;
+        case 2:
+            lv_indev_wait_release(lv_indev_get_act());
+            ui_load_scr_animation(&guider_ui, &guider_ui.screen_3, guider_ui.screen_3_del, &guider_ui.List_1_del, setup_scr_screen_3, LV_SCR_LOAD_ANIM_MOVE_RIGHT, 200, 0, true, true);
+            break;
+        default:
+            break;
+        }
+        break;
+    }
+    default:
+        break;
+    }
+}
+
 static void List_2_cont_8_event_handler (lv_event_t *e)
 {
     lv_event_code_t code = lv_event_get_code(e);
@@ -1335,7 +1420,352 @@ static void List_2_cont_8_event_handler (lv_event_t *e)
 void events_init_List_2 (lv_ui *ui)
 {
     lv_obj_add_event_cb(ui->List_2, List_2_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->List_2_btn_1, List_2_btn_1_event_handler, LV_EVENT_ALL, ui);
     lv_obj_add_event_cb(ui->List_2_cont_8, List_2_cont_8_event_handler, LV_EVENT_ALL, ui);
+}
+
+static void List_3_event_handler (lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    switch (code) {
+    case LV_EVENT_SCREEN_LOADED:
+    {
+        scroll_obj[0]=guider_ui.List_3_img_1;
+        scroll_obj[1]=guider_ui.List_3_img_2;
+        scroll_obj[2]=guider_ui.List_3_img_4;
+        scroll_obj[3]=guider_ui.List_3_img_5;
+        scroll_obj[4]=guider_ui.List_3_img_6;
+        scroll_obj[5]=guider_ui.List_3_img_7;
+        scroll_obj[6]=guider_ui.List_3_img_3;
+
+        break;
+    }
+    default:
+        break;
+    }
+}
+
+static void List_3_btn_1_event_handler (lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    switch (code) {
+    case LV_EVENT_CLICKED:
+    {
+
+        switch (screen_index)
+        {
+        case 0:
+            lv_indev_wait_release(lv_indev_get_act());
+            ui_load_scr_animation(&guider_ui, &guider_ui.screen_1_home, guider_ui.screen_1_home_del, &guider_ui.List_1_del, setup_scr_screen_1_home, LV_SCR_LOAD_ANIM_MOVE_RIGHT, 200, 0, true, true);
+            break;
+        case 1:
+            lv_indev_wait_release(lv_indev_get_act());
+            ui_load_scr_animation(&guider_ui, &guider_ui.screen_2, guider_ui.screen_2_del, &guider_ui.List_1_del, setup_scr_screen_2, LV_SCR_LOAD_ANIM_MOVE_RIGHT, 200, 0, true, true);
+            break;
+        case 2:
+            lv_indev_wait_release(lv_indev_get_act());
+            ui_load_scr_animation(&guider_ui, &guider_ui.screen_3, guider_ui.screen_3_del, &guider_ui.List_1_del, setup_scr_screen_3, LV_SCR_LOAD_ANIM_MOVE_RIGHT, 200, 0, true, true);
+            break;
+        default:
+            break;
+        }
+        break;
+    }
+    default:
+        break;
+    }
+}
+
+static void List_3_cont_1_event_handler (lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    switch (code) {
+    case LV_EVENT_PRESSED:
+    {
+        // 手指**刚碰到屏幕**的瞬间触发。
+
+        //
+        //
+        lv_indev_t *indev = lv_indev_get_act();
+        lv_point_t point;
+        lv_indev_get_point(indev, &point);
+        start_point.x=point.x;
+        start_point.y=point.y;
+
+
+        //move layer
+        lv_obj_move_to_index(guider_ui.List_3_btn_2,11);
+
+        is_pissing =1;
+        break;
+    }
+    case LV_EVENT_PRESSING:
+    {
+        // *************按住并移动**时**持续触发**
+        lv_indev_t *indev = lv_indev_get_act();
+        lv_point_t point;
+        lv_indev_get_point(indev, &point);
+        int16_t dx=(point.x-start_point.x);
+        int16_t dy=(point.y-start_point.y);
+
+        if(LV_ABS(dx)>20||LV_ABS(dy)>20) {
+            if(is_pissing) {
+                switch(get_touch_quadrant()) {
+                case 1:
+                    if ((dx ^ dy) >= 0) {
+                        if(dx>0) {
+                            for(int i=0; i<menu_3_cnt; i++) {
+
+                                if(i==6) {
+                                    ui_animation(scroll_obj[i],500,0,initial_points[i].x,initial_points[0].x,&lv_anim_path_overshoot,0,0,0,0, (lv_anim_exec_xcb_t)lv_obj_set_x, NULL, NULL, NULL);
+                                    ui_animation(scroll_obj[i],500,0,initial_points[i].y,initial_points[0].y,&lv_anim_path_overshoot,0,0,0,0, (lv_anim_exec_xcb_t)lv_obj_set_y, NULL, NULL, NULL);
+
+                                    // 执行反向位移操作
+                                    lv_obj_t* temp = scroll_obj[menu_3_cnt - 1];
+                                    for (int i = menu_3_cnt - 2; i >= 0; i--) {
+                                        scroll_obj[i + 1] = scroll_obj[i];
+                                    }
+                                    scroll_obj[0] = temp;
+
+                                } else {
+                                    ui_animation(scroll_obj[i],500,0,initial_points[i].x,initial_points[i+1].x,&lv_anim_path_overshoot,0,0,0,0, (lv_anim_exec_xcb_t)lv_obj_set_x, NULL, NULL, NULL);
+                                    ui_animation(scroll_obj[i],500,0,initial_points[i].y,initial_points[i+1].y,&lv_anim_path_overshoot,0,0,0,0, (lv_anim_exec_xcb_t)lv_obj_set_y, NULL, NULL, NULL);
+                                }
+
+
+                            }
+                        } else {
+                            for(int i=0; i<menu_3_cnt; i++) {
+                                if(i==0) {
+                                    ui_animation(scroll_obj[i],500,0,initial_points[i].x,initial_points[6].x,&lv_anim_path_overshoot,0,0,0,0, (lv_anim_exec_xcb_t)lv_obj_set_x, NULL, NULL, NULL);
+                                    ui_animation(scroll_obj[i],500,0,initial_points[i].y,initial_points[6].y,&lv_anim_path_overshoot,0,0,0,0, (lv_anim_exec_xcb_t)lv_obj_set_y, NULL, NULL, NULL);
+
+                                } else {
+                                    ui_animation(scroll_obj[i],500,0,initial_points[i].x,initial_points[i-1].x,&lv_anim_path_overshoot,0,0,0,0, (lv_anim_exec_xcb_t)lv_obj_set_x, NULL, NULL, NULL);
+                                    ui_animation(scroll_obj[i],500,0,initial_points[i].y,initial_points[i-1].y,&lv_anim_path_overshoot,0,0,0,0, (lv_anim_exec_xcb_t)lv_obj_set_y, NULL, NULL, NULL);
+                                    if(i==6) {
+                                        lv_obj_t* temp = scroll_obj[0];
+                                        for (int i = 0; i < menu_3_cnt - 1; i++) {
+                                            scroll_obj[i] = scroll_obj[i + 1];
+                                        }
+                                        scroll_obj[menu_3_cnt - 1] = temp;
+                                    }
+                                }
+                            }
+
+                        }
+
+
+                    }
+                    break;
+                case 2:
+                    if ((dx ^ dy) < 0) {
+                        if(dx>0) {
+                            for(int i=0; i<menu_3_cnt; i++) {
+
+                                if(i==6) {
+                                    ui_animation(scroll_obj[i],500,0,initial_points[i].x,initial_points[0].x,&lv_anim_path_overshoot,0,0,0,0, (lv_anim_exec_xcb_t)lv_obj_set_x, NULL, NULL, NULL);
+                                    ui_animation(scroll_obj[i],500,0,initial_points[i].y,initial_points[0].y,&lv_anim_path_overshoot,0,0,0,0, (lv_anim_exec_xcb_t)lv_obj_set_y, NULL, NULL, NULL);
+
+                                    // 执行反向位移操作
+                                    lv_obj_t* temp = scroll_obj[menu_3_cnt - 1];
+                                    for (int i = menu_3_cnt - 2; i >= 0; i--) {
+                                        scroll_obj[i + 1] = scroll_obj[i];
+                                    }
+                                    scroll_obj[0] = temp;
+
+                                } else {
+                                    ui_animation(scroll_obj[i],500,0,initial_points[i].x,initial_points[i+1].x,&lv_anim_path_overshoot,0,0,0,0, (lv_anim_exec_xcb_t)lv_obj_set_x, NULL, NULL, NULL);
+                                    ui_animation(scroll_obj[i],500,0,initial_points[i].y,initial_points[i+1].y,&lv_anim_path_overshoot,0,0,0,0, (lv_anim_exec_xcb_t)lv_obj_set_y, NULL, NULL, NULL);
+                                }
+
+
+                            }
+                        } else {
+                            for(int i=0; i<menu_3_cnt; i++) {
+                                if(i==0) {
+                                    ui_animation(scroll_obj[i],500,0,initial_points[i].x,initial_points[6].x,&lv_anim_path_overshoot,0,0,0,0, (lv_anim_exec_xcb_t)lv_obj_set_x, NULL, NULL, NULL);
+                                    ui_animation(scroll_obj[i],500,0,initial_points[i].y,initial_points[6].y,&lv_anim_path_overshoot,0,0,0,0, (lv_anim_exec_xcb_t)lv_obj_set_y, NULL, NULL, NULL);
+
+                                } else {
+                                    ui_animation(scroll_obj[i],500,0,initial_points[i].x,initial_points[i-1].x,&lv_anim_path_overshoot,0,0,0,0, (lv_anim_exec_xcb_t)lv_obj_set_x, NULL, NULL, NULL);
+                                    ui_animation(scroll_obj[i],500,0,initial_points[i].y,initial_points[i-1].y,&lv_anim_path_overshoot,0,0,0,0, (lv_anim_exec_xcb_t)lv_obj_set_y, NULL, NULL, NULL);
+                                    if(i==6) {
+                                        lv_obj_t* temp = scroll_obj[0];
+                                        for (int i = 0; i < menu_3_cnt - 1; i++) {
+                                            scroll_obj[i] = scroll_obj[i + 1];
+                                        }
+                                        scroll_obj[menu_3_cnt - 1] = temp;
+                                    }
+                                }
+                            }
+
+                        }
+
+
+                    }
+                    break;
+                case 3:
+
+                    if ((dx ^ dy) >= 0) {
+                        if(dx>0) {
+                            for(int i=0; i<menu_3_cnt; i++) {
+                                if(i==0) {
+                                    ui_animation(scroll_obj[i],500,0,initial_points[i].x,initial_points[6].x,&lv_anim_path_overshoot,0,0,0,0, (lv_anim_exec_xcb_t)lv_obj_set_x, NULL, NULL, NULL);
+                                    ui_animation(scroll_obj[i],500,0,initial_points[i].y,initial_points[6].y,&lv_anim_path_overshoot,0,0,0,0, (lv_anim_exec_xcb_t)lv_obj_set_y, NULL, NULL, NULL);
+
+                                } else {
+                                    ui_animation(scroll_obj[i],500,0,initial_points[i].x,initial_points[i-1].x,&lv_anim_path_overshoot,0,0,0,0, (lv_anim_exec_xcb_t)lv_obj_set_x, NULL, NULL, NULL);
+                                    ui_animation(scroll_obj[i],500,0,initial_points[i].y,initial_points[i-1].y,&lv_anim_path_overshoot,0,0,0,0, (lv_anim_exec_xcb_t)lv_obj_set_y, NULL, NULL, NULL);
+                                    if(i==6) {
+                                        lv_obj_t* temp = scroll_obj[0];
+                                        for (int i = 0; i < menu_3_cnt - 1; i++) {
+                                            scroll_obj[i] = scroll_obj[i + 1];
+                                        }
+                                        scroll_obj[menu_3_cnt - 1] = temp;
+                                    }
+                                }
+                            }
+                        } else {
+                            for(int i=0; i<menu_3_cnt; i++) {
+
+                                if(i==6) {
+                                    ui_animation(scroll_obj[i],500,0,initial_points[i].x,initial_points[0].x,&lv_anim_path_overshoot,0,0,0,0, (lv_anim_exec_xcb_t)lv_obj_set_x, NULL, NULL, NULL);
+                                    ui_animation(scroll_obj[i],500,0,initial_points[i].y,initial_points[0].y,&lv_anim_path_overshoot,0,0,0,0, (lv_anim_exec_xcb_t)lv_obj_set_y, NULL, NULL, NULL);
+
+                                    // 执行反向位移操作
+                                    lv_obj_t* temp = scroll_obj[menu_3_cnt - 1];
+                                    for (int i = menu_3_cnt - 2; i >= 0; i--) {
+                                        scroll_obj[i + 1] = scroll_obj[i];
+                                    }
+                                    scroll_obj[0] = temp;
+
+                                } else {
+                                    ui_animation(scroll_obj[i],500,0,initial_points[i].x,initial_points[i+1].x,&lv_anim_path_overshoot,0,0,0,0, (lv_anim_exec_xcb_t)lv_obj_set_x, NULL, NULL, NULL);
+                                    ui_animation(scroll_obj[i],500,0,initial_points[i].y,initial_points[i+1].y,&lv_anim_path_overshoot,0,0,0,0, (lv_anim_exec_xcb_t)lv_obj_set_y, NULL, NULL, NULL);
+                                }
+
+
+                            }
+
+                        }
+
+
+                    }
+                    break;
+                case 4:
+
+
+                    if ((dx ^ dy) < 0) {
+                        if(dx>0) {
+                            for(int i=0; i<menu_3_cnt; i++) {
+                                if(i==0) {
+                                    ui_animation(scroll_obj[i],500,0,initial_points[i].x,initial_points[6].x,&lv_anim_path_overshoot,0,0,0,0, (lv_anim_exec_xcb_t)lv_obj_set_x, NULL, NULL, NULL);
+                                    ui_animation(scroll_obj[i],500,0,initial_points[i].y,initial_points[6].y,&lv_anim_path_overshoot,0,0,0,0, (lv_anim_exec_xcb_t)lv_obj_set_y, NULL, NULL, NULL);
+
+                                } else {
+                                    ui_animation(scroll_obj[i],500,0,initial_points[i].x,initial_points[i-1].x,&lv_anim_path_overshoot,0,0,0,0, (lv_anim_exec_xcb_t)lv_obj_set_x, NULL, NULL, NULL);
+                                    ui_animation(scroll_obj[i],500,0,initial_points[i].y,initial_points[i-1].y,&lv_anim_path_overshoot,0,0,0,0, (lv_anim_exec_xcb_t)lv_obj_set_y, NULL, NULL, NULL);
+                                    if(i==6) {
+                                        lv_obj_t* temp = scroll_obj[0];
+                                        for (int i = 0; i < menu_3_cnt - 1; i++) {
+                                            scroll_obj[i] = scroll_obj[i + 1];
+                                        }
+                                        scroll_obj[menu_3_cnt - 1] = temp;
+                                    }
+                                }
+                            }
+                        } else {
+                            for(int i=0; i<menu_3_cnt; i++) {
+
+                                if(i==6) {
+                                    ui_animation(scroll_obj[i],500,0,initial_points[i].x,initial_points[0].x,&lv_anim_path_overshoot,0,0,0,0, (lv_anim_exec_xcb_t)lv_obj_set_x, NULL, NULL, NULL);
+                                    ui_animation(scroll_obj[i],500,0,initial_points[i].y,initial_points[0].y,&lv_anim_path_overshoot,0,0,0,0, (lv_anim_exec_xcb_t)lv_obj_set_y, NULL, NULL, NULL);
+
+                                    // 执行反向位移操作
+                                    lv_obj_t* temp = scroll_obj[menu_3_cnt - 1];
+                                    for (int i = menu_3_cnt - 2; i >= 0; i--) {
+                                        scroll_obj[i + 1] = scroll_obj[i];
+                                    }
+                                    scroll_obj[0] = temp;
+
+                                } else {
+                                    ui_animation(scroll_obj[i],500,0,initial_points[i].x,initial_points[i+1].x,&lv_anim_path_overshoot,0,0,0,0, (lv_anim_exec_xcb_t)lv_obj_set_x, NULL, NULL, NULL);
+                                    ui_animation(scroll_obj[i],500,0,initial_points[i].y,initial_points[i+1].y,&lv_anim_path_overshoot,0,0,0,0, (lv_anim_exec_xcb_t)lv_obj_set_y, NULL, NULL, NULL);
+                                }
+
+
+                            }
+
+                        }
+
+
+                    }
+                    break;
+                }
+                is_pissing=0;
+            }
+
+        }
+
+
+
+
+
+
+
+        break;
+    }
+    case LV_EVENT_PRESS_LOST:
+    {
+        //**划出区域或被系统打断**时触发
+
+        lv_obj_move_to_index(guider_ui.List_3_btn_2,12);
+        break;
+    }
+    default:
+        break;
+    }
+}
+
+static void List_3_btn_2_event_handler (lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    switch (code) {
+    case LV_EVENT_CLICKED:
+    {
+
+        if(scroll_obj[0]==guider_ui.List_3_img_1) {
+            ui_load_scr_animation(&guider_ui, &guider_ui.Heart, guider_ui.Heart_del, &guider_ui.List_3_del, setup_scr_Heart, LV_SCR_LOAD_ANIM_FADE_ON, 200, 200, true, true);
+        }
+        if(scroll_obj[0]==guider_ui.List_3_img_4) {
+            ui_load_scr_animation(&guider_ui, &guider_ui.Set, guider_ui.Set_del, &guider_ui.List_3_del, setup_scr_Set, LV_SCR_LOAD_ANIM_FADE_ON, 200, 200, true, true);
+        }
+        if(scroll_obj[0]==guider_ui.List_3_img_5) {
+            ui_load_scr_animation(&guider_ui, &guider_ui.Systeamupdate, guider_ui.Systeamupdate_del, &guider_ui.List_3_del, setup_scr_Systeamupdate, LV_SCR_LOAD_ANIM_FADE_ON, 200, 200, true, true);
+        }
+        if(scroll_obj[0]==guider_ui.List_3_img_6) {
+            ui_load_scr_animation(&guider_ui, &guider_ui.NFC, guider_ui.NFC_del, &guider_ui.List_3_del, setup_scr_NFC, LV_SCR_LOAD_ANIM_FADE_ON, 200, 200, true, true);
+        }
+        if(scroll_obj[0]==guider_ui.List_3_img_7) {
+            ui_load_scr_animation(&guider_ui, &guider_ui.Map, guider_ui.Map_del, &guider_ui.List_3_del, setup_scr_Map, LV_SCR_LOAD_ANIM_FADE_ON, 200, 200, true, true);
+        }
+        if(scroll_obj[0]==guider_ui.List_3_img_3) {
+            ui_load_scr_animation(&guider_ui, &guider_ui.QRcode, guider_ui.QRcode_del, &guider_ui.List_3_del, setup_scr_QRcode, LV_SCR_LOAD_ANIM_FADE_ON, 200, 200, true, true);
+        }
+        break;
+    }
+    default:
+        break;
+    }
+}
+
+void events_init_List_3 (lv_ui *ui)
+{
+    lv_obj_add_event_cb(ui->List_3, List_3_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->List_3_btn_1, List_3_btn_1_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->List_3_cont_1, List_3_cont_1_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->List_3_btn_2, List_3_btn_2_event_handler, LV_EVENT_ALL, ui);
 }
 
 static void Set_cont_1_event_handler (lv_event_t *e)
@@ -1366,9 +1796,9 @@ static void Set_btn_1_event_handler (lv_event_t *e)
         case 1:
             ui_load_scr_animation(&guider_ui, &guider_ui.List_2, guider_ui.List_2_del, &guider_ui.Set_del, setup_scr_List_2, LV_SCR_LOAD_ANIM_FADE_ON, 200, 200, true, true);
             break;
-            // case 2:
-            //   ui_load_scr_animation(&guider_ui, &guider_ui.List_3, guider_ui.List_3_del, &guider_ui.Set_del, setup_scr_List_3, LV_SCR_LOAD_ANIM_FADE_ON, 200, 200, true, true);
-            // break;
+        case 2:
+            ui_load_scr_animation(&guider_ui, &guider_ui.List_3, guider_ui.List_3_del, &guider_ui.Set_del, setup_scr_List_3, LV_SCR_LOAD_ANIM_FADE_ON, 200, 200, true, true);
+            break;
         }
         break;
     }
@@ -1391,20 +1821,13 @@ static void Set_cont_2_event_handler (lv_event_t *e)
     }
 }
 
-void events_init_Set (lv_ui *ui)
-{
-    lv_obj_add_event_cb(ui->Set_cont_1, Set_cont_1_event_handler, LV_EVENT_ALL, ui);
-    lv_obj_add_event_cb(ui->Set_btn_1, Set_btn_1_event_handler, LV_EVENT_ALL, ui);
-    lv_obj_add_event_cb(ui->Set_cont_2, Set_cont_2_event_handler, LV_EVENT_ALL, ui);
-}
-
-static void heart_btn_1_event_handler (lv_event_t *e)
+static void Set_cont_3_event_handler (lv_event_t *e)
 {
     lv_event_code_t code = lv_event_get_code(e);
     switch (code) {
     case LV_EVENT_CLICKED:
     {
-        ui_load_scr_animation(&guider_ui, &guider_ui.List_1, guider_ui.List_1_del, &guider_ui.heart_del, setup_scr_List_1, LV_SCR_LOAD_ANIM_NONE, 200, 2, true, true);
+        mode=2;
         break;
     }
     default:
@@ -1412,9 +1835,162 @@ static void heart_btn_1_event_handler (lv_event_t *e)
     }
 }
 
-void events_init_heart (lv_ui *ui)
+void events_init_Set (lv_ui *ui)
 {
-    lv_obj_add_event_cb(ui->heart_btn_1, heart_btn_1_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->Set_cont_1, Set_cont_1_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->Set_btn_1, Set_btn_1_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->Set_cont_2, Set_cont_2_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->Set_cont_3, Set_cont_3_event_handler, LV_EVENT_ALL, ui);
+}
+
+static void Heart_btn_1_event_handler (lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    switch (code) {
+    case LV_EVENT_CLICKED:
+    {
+
+        switch(mode) {
+        case 0:
+            ui_load_scr_animation(&guider_ui, &guider_ui.List_1, guider_ui.List_1_del, &guider_ui.Set_del, setup_scr_List_1, LV_SCR_LOAD_ANIM_FADE_ON, 200, 200, true, true);
+            break;
+        case 1:
+            ui_load_scr_animation(&guider_ui, &guider_ui.List_2, guider_ui.List_2_del, &guider_ui.Set_del, setup_scr_List_2, LV_SCR_LOAD_ANIM_FADE_ON, 200, 200, true, true);
+            break;
+        case 2:
+            ui_load_scr_animation(&guider_ui, &guider_ui.List_3, guider_ui.List_3_del, &guider_ui.Set_del, setup_scr_List_3, LV_SCR_LOAD_ANIM_FADE_ON, 200, 200, true, true);
+            break;
+        }
+        break;
+    }
+    default:
+        break;
+    }
+}
+
+void events_init_Heart (lv_ui *ui)
+{
+    lv_obj_add_event_cb(ui->Heart_btn_1, Heart_btn_1_event_handler, LV_EVENT_ALL, ui);
+}
+
+static void NFC_btn_1_event_handler (lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    switch (code) {
+    case LV_EVENT_CLICKED:
+    {
+
+        switch(mode) {
+        case 0:
+            ui_load_scr_animation(&guider_ui, &guider_ui.List_1, guider_ui.List_1_del, &guider_ui.Set_del, setup_scr_List_1, LV_SCR_LOAD_ANIM_FADE_ON, 200, 200, true, true);
+            break;
+        case 1:
+            ui_load_scr_animation(&guider_ui, &guider_ui.List_2, guider_ui.List_2_del, &guider_ui.Set_del, setup_scr_List_2, LV_SCR_LOAD_ANIM_FADE_ON, 200, 200, true, true);
+            break;
+        case 2:
+            ui_load_scr_animation(&guider_ui, &guider_ui.List_3, guider_ui.List_3_del, &guider_ui.Set_del, setup_scr_List_3, LV_SCR_LOAD_ANIM_FADE_ON, 200, 200, true, true);
+            break;
+        }
+        break;
+    }
+    default:
+        break;
+    }
+}
+
+void events_init_NFC (lv_ui *ui)
+{
+    lv_obj_add_event_cb(ui->NFC_btn_1, NFC_btn_1_event_handler, LV_EVENT_ALL, ui);
+}
+
+static void Map_btn_1_event_handler (lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    switch (code) {
+    case LV_EVENT_CLICKED:
+    {
+
+        switch(mode) {
+        case 0:
+            ui_load_scr_animation(&guider_ui, &guider_ui.List_1, guider_ui.List_1_del, &guider_ui.Set_del, setup_scr_List_1, LV_SCR_LOAD_ANIM_FADE_ON, 200, 200, true, true);
+            break;
+        case 1:
+            ui_load_scr_animation(&guider_ui, &guider_ui.List_2, guider_ui.List_2_del, &guider_ui.Set_del, setup_scr_List_2, LV_SCR_LOAD_ANIM_FADE_ON, 200, 200, true, true);
+            break;
+        case 2:
+            ui_load_scr_animation(&guider_ui, &guider_ui.List_3, guider_ui.List_3_del, &guider_ui.Set_del, setup_scr_List_3, LV_SCR_LOAD_ANIM_FADE_ON, 200, 200, true, true);
+            break;
+        }
+        break;
+    }
+    default:
+        break;
+    }
+}
+
+void events_init_Map (lv_ui *ui)
+{
+    lv_obj_add_event_cb(ui->Map_btn_1, Map_btn_1_event_handler, LV_EVENT_ALL, ui);
+}
+
+static void QRcode_btn_1_event_handler (lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    switch (code) {
+    case LV_EVENT_CLICKED:
+    {
+
+        switch(mode) {
+        case 0:
+            ui_load_scr_animation(&guider_ui, &guider_ui.List_1, guider_ui.List_1_del, &guider_ui.Set_del, setup_scr_List_1, LV_SCR_LOAD_ANIM_FADE_ON, 200, 200, true, true);
+            break;
+        case 1:
+            ui_load_scr_animation(&guider_ui, &guider_ui.List_2, guider_ui.List_2_del, &guider_ui.Set_del, setup_scr_List_2, LV_SCR_LOAD_ANIM_FADE_ON, 200, 200, true, true);
+            break;
+        case 2:
+            ui_load_scr_animation(&guider_ui, &guider_ui.List_3, guider_ui.List_3_del, &guider_ui.Set_del, setup_scr_List_3, LV_SCR_LOAD_ANIM_FADE_ON, 200, 200, true, true);
+            break;
+        }
+        break;
+    }
+    default:
+        break;
+    }
+}
+
+void events_init_QRcode (lv_ui *ui)
+{
+    lv_obj_add_event_cb(ui->QRcode_btn_1, QRcode_btn_1_event_handler, LV_EVENT_ALL, ui);
+}
+
+static void Systeamupdate_btn_1_event_handler (lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    switch (code) {
+    case LV_EVENT_CLICKED:
+    {
+
+        switch(mode) {
+        case 0:
+            ui_load_scr_animation(&guider_ui, &guider_ui.List_1, guider_ui.List_1_del, &guider_ui.Set_del, setup_scr_List_1, LV_SCR_LOAD_ANIM_FADE_ON, 200, 200, true, true);
+            break;
+        case 1:
+            ui_load_scr_animation(&guider_ui, &guider_ui.List_2, guider_ui.List_2_del, &guider_ui.Set_del, setup_scr_List_2, LV_SCR_LOAD_ANIM_FADE_ON, 200, 200, true, true);
+            break;
+        case 2:
+            ui_load_scr_animation(&guider_ui, &guider_ui.List_3, guider_ui.List_3_del, &guider_ui.Set_del, setup_scr_List_3, LV_SCR_LOAD_ANIM_FADE_ON, 200, 200, true, true);
+            break;
+        }
+        break;
+    }
+    default:
+        break;
+    }
+}
+
+void events_init_Systeamupdate (lv_ui *ui)
+{
+    lv_obj_add_event_cb(ui->Systeamupdate_btn_1, Systeamupdate_btn_1_event_handler, LV_EVENT_ALL, ui);
 }
 
 

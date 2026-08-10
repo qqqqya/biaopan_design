@@ -16,68 +16,68 @@
 
 
 
-void setup_scr_heart(lv_ui *ui)
+void setup_scr_Heart(lv_ui *ui)
 {
-    //Write codes heart
-    ui->heart = lv_obj_create(NULL);
-    lv_obj_set_size(ui->heart, 240, 280);
-    lv_obj_set_scrollbar_mode(ui->heart, LV_SCROLLBAR_MODE_OFF);
+    //Write codes Heart
+    ui->Heart = lv_obj_create(NULL);
+    lv_obj_set_size(ui->Heart, 240, 280);
+    lv_obj_set_scrollbar_mode(ui->Heart, LV_SCROLLBAR_MODE_OFF);
 
-    //Write style for heart, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
-    lv_obj_set_style_bg_opa(ui->heart, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_bg_color(ui->heart, lv_color_hex(0x000000), LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_bg_grad_dir(ui->heart, LV_GRAD_DIR_NONE, LV_PART_MAIN|LV_STATE_DEFAULT);
+    //Write style for Heart, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
+    lv_obj_set_style_bg_opa(ui->Heart, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_color(ui->Heart, lv_color_hex(0x000000), LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_grad_dir(ui->Heart, LV_GRAD_DIR_NONE, LV_PART_MAIN|LV_STATE_DEFAULT);
 
-    //Write codes heart_label_1
-    ui->heart_label_1 = lv_label_create(ui->heart);
-    lv_label_set_text(ui->heart_label_1, "heart");
-    lv_label_set_long_mode(ui->heart_label_1, LV_LABEL_LONG_WRAP);
-    lv_obj_set_pos(ui->heart_label_1, 70, 124);
-    lv_obj_set_size(ui->heart_label_1, 100, 32);
+    //Write codes Heart_label_1
+    ui->Heart_label_1 = lv_label_create(ui->Heart);
+    lv_label_set_text(ui->Heart_label_1, "heart");
+    lv_label_set_long_mode(ui->Heart_label_1, LV_LABEL_LONG_WRAP);
+    lv_obj_set_pos(ui->Heart_label_1, 70, 124);
+    lv_obj_set_size(ui->Heart_label_1, 100, 32);
 
-    //Write style for heart_label_1, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
-    lv_obj_set_style_border_width(ui->heart_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_radius(ui->heart_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_text_color(ui->heart_label_1, lv_color_hex(0xffffff), LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_text_font(ui->heart_label_1, &lv_font_montserratMedium_16, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_text_opa(ui->heart_label_1, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_text_letter_space(ui->heart_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_text_line_space(ui->heart_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_text_align(ui->heart_label_1, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_bg_opa(ui->heart_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_pad_top(ui->heart_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_pad_right(ui->heart_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_pad_bottom(ui->heart_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_pad_left(ui->heart_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_shadow_width(ui->heart_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    //Write style for Heart_label_1, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
+    lv_obj_set_style_border_width(ui->Heart_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_radius(ui->Heart_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_color(ui->Heart_label_1, lv_color_hex(0xffffff), LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_font(ui->Heart_label_1, &lv_font_montserratMedium_16, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_opa(ui->Heart_label_1, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_letter_space(ui->Heart_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_line_space(ui->Heart_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_align(ui->Heart_label_1, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_opa(ui->Heart_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_top(ui->Heart_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_right(ui->Heart_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_bottom(ui->Heart_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_left(ui->Heart_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_shadow_width(ui->Heart_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
 
-    //Write codes heart_btn_1
-    ui->heart_btn_1 = lv_btn_create(ui->heart);
-    ui->heart_btn_1_label = lv_label_create(ui->heart_btn_1);
-    lv_label_set_text(ui->heart_btn_1_label, "< Menu");
-    lv_label_set_long_mode(ui->heart_btn_1_label, LV_LABEL_LONG_WRAP);
-    lv_obj_align(ui->heart_btn_1_label, LV_ALIGN_CENTER, 0, 0);
-    lv_obj_set_style_pad_all(ui->heart_btn_1, 0, LV_STATE_DEFAULT);
-    lv_obj_set_width(ui->heart_btn_1_label, LV_PCT(100));
-    lv_obj_set_pos(ui->heart_btn_1, 19, 14);
-    lv_obj_set_size(ui->heart_btn_1, 70, 32);
+    //Write codes Heart_btn_1
+    ui->Heart_btn_1 = lv_btn_create(ui->Heart);
+    ui->Heart_btn_1_label = lv_label_create(ui->Heart_btn_1);
+    lv_label_set_text(ui->Heart_btn_1_label, "< Menu");
+    lv_label_set_long_mode(ui->Heart_btn_1_label, LV_LABEL_LONG_WRAP);
+    lv_obj_align(ui->Heart_btn_1_label, LV_ALIGN_CENTER, 0, 0);
+    lv_obj_set_style_pad_all(ui->Heart_btn_1, 0, LV_STATE_DEFAULT);
+    lv_obj_set_width(ui->Heart_btn_1_label, LV_PCT(100));
+    lv_obj_set_pos(ui->Heart_btn_1, 19, 14);
+    lv_obj_set_size(ui->Heart_btn_1, 70, 32);
 
-    //Write style for heart_btn_1, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
-    lv_obj_set_style_bg_opa(ui->heart_btn_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_border_width(ui->heart_btn_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_radius(ui->heart_btn_1, 5, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_shadow_width(ui->heart_btn_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_text_color(ui->heart_btn_1, lv_color_hex(0xffffff), LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_text_font(ui->heart_btn_1, &lv_font_montserratMedium_16, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_text_opa(ui->heart_btn_1, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_text_align(ui->heart_btn_1, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN|LV_STATE_DEFAULT);
+    //Write style for Heart_btn_1, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
+    lv_obj_set_style_bg_opa(ui->Heart_btn_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_border_width(ui->Heart_btn_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_radius(ui->Heart_btn_1, 5, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_shadow_width(ui->Heart_btn_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_color(ui->Heart_btn_1, lv_color_hex(0xffffff), LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_font(ui->Heart_btn_1, &lv_font_montserratMedium_16, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_opa(ui->Heart_btn_1, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_align(ui->Heart_btn_1, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN|LV_STATE_DEFAULT);
 
-    //The custom code of heart.
+    //The custom code of Heart.
 
 
     //Update current screen layout.
-    lv_obj_update_layout(ui->heart);
+    lv_obj_update_layout(ui->Heart);
 
     //Init events for screen.
-    events_init_heart(ui);
+    events_init_Heart(ui);
 }
