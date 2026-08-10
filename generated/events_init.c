@@ -1275,22 +1275,40 @@ static void List_2_event_handler (lv_event_t *e)
     }
     case LV_EVENT_SCROLL_END:
     {
-
         switch(level) {
+        /* ============================================
+         * 吸附到顶部（第0档）
+         * ============================================ */
         case 0:
-            lv_obj_scroll_to_y(guider_ui.List_2,0,LV_ANIM_ON);
+            lv_obj_scroll_to_y(guider_ui.List_2, 0, LV_ANIM_ON);
             break;
+
+        /* ============================================
+         * 吸附到第1档位置
+         * ============================================ */
         case 1:
-            lv_obj_scroll_to_y(guider_ui.List_2,120,LV_ANIM_ON);
+            lv_obj_scroll_to_y(guider_ui.List_2, 80, LV_ANIM_ON);
             break;
+
+        /* ============================================
+         * 吸附到第2档位置
+         * ============================================ */
         case 2:
-            lv_obj_scroll_to_y(guider_ui.List_2,200,LV_ANIM_ON);
+            lv_obj_scroll_to_y(guider_ui.List_2, 120, LV_ANIM_ON);
             break;
+
+        /* ============================================
+         * 吸附到第3档位置
+         * ============================================ */
         case 3:
-            lv_obj_scroll_to_y(guider_ui.List_2,280,LV_ANIM_ON);
+            lv_obj_scroll_to_y(guider_ui.List_2, 160, LV_ANIM_ON);
             break;
+
+        /* ============================================
+         * 吸附到第4档位置（底部）
+         * ============================================ */
         case 4:
-            lv_obj_scroll_to_y(guider_ui.List_2,380,LV_ANIM_ON);
+            lv_obj_scroll_to_y(guider_ui.List_2, 200, LV_ANIM_ON);
             break;
         }
         break;
