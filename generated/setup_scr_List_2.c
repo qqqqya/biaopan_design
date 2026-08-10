@@ -52,7 +52,7 @@ void setup_scr_List_2(lv_ui *ui)
     //Write codes List_2_cont_1
     ui->List_2_cont_1 = lv_obj_create(ui->List_2);
     lv_obj_set_pos(ui->List_2_cont_1, 10, 40);
-    lv_obj_set_size(ui->List_2_cont_1, 220, 391);
+    lv_obj_set_size(ui->List_2_cont_1, 220, 377);
     lv_obj_set_scrollbar_mode(ui->List_2_cont_1, LV_SCROLLBAR_MODE_OFF);
 
     //Write style for List_2_cont_1, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
@@ -89,11 +89,11 @@ void setup_scr_List_2(lv_ui *ui)
     //Write codes List_2_img_13
     ui->List_2_img_13 = lv_img_create(ui->List_2_cont_2);
     lv_obj_add_flag(ui->List_2_img_13, LV_OBJ_FLAG_CLICKABLE);
-    lv_img_set_src(ui->List_2_img_13, &_heart32x32_alpha_30x30);
+    lv_img_set_src(ui->List_2_img_13, &_heart32x32_alpha_48x39);
     lv_img_set_pivot(ui->List_2_img_13, 50,50);
     lv_img_set_angle(ui->List_2_img_13, 0);
     lv_obj_set_pos(ui->List_2_img_13, 27, 2);
-    lv_obj_set_size(ui->List_2_img_13, 30, 30);
+    lv_obj_set_size(ui->List_2_img_13, 48, 39);
 
     //Write style for List_2_img_13, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
     lv_obj_set_style_img_recolor_opa(ui->List_2_img_13, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
@@ -105,7 +105,7 @@ void setup_scr_List_2(lv_ui *ui)
     ui->List_2_label_13 = lv_label_create(ui->List_2_cont_2);
     lv_label_set_text(ui->List_2_label_13, "Heart rate");
     lv_label_set_long_mode(ui->List_2_label_13, LV_LABEL_LONG_WRAP);
-    lv_obj_set_pos(ui->List_2_label_13, 53, 9);
+    lv_obj_set_pos(ui->List_2_label_13, 52, 9);
     lv_obj_set_size(ui->List_2_label_13, 135, 18);
 
     //Write style for List_2_label_13, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
@@ -362,7 +362,7 @@ void setup_scr_List_2(lv_ui *ui)
 
     //Write codes List_2_cont_7
     ui->List_2_cont_7 = lv_obj_create(ui->List_2_cont_1);
-    lv_obj_set_pos(ui->List_2_cont_7, 0, 270);
+    lv_obj_set_pos(ui->List_2_cont_7, 4, 270);
     lv_obj_set_size(ui->List_2_cont_7, 215, 40);
     lv_obj_set_scrollbar_mode(ui->List_2_cont_7, LV_SCROLLBAR_MODE_OFF);
 
@@ -421,7 +421,7 @@ void setup_scr_List_2(lv_ui *ui)
 
     //Write codes List_2_cont_8
     ui->List_2_cont_8 = lv_obj_create(ui->List_2_cont_1);
-    lv_obj_set_pos(ui->List_2_cont_8, 5, 325);
+    lv_obj_set_pos(ui->List_2_cont_8, 3, 326);
     lv_obj_set_size(ui->List_2_cont_8, 215, 40);
     lv_obj_set_scrollbar_mode(ui->List_2_cont_8, LV_SCROLLBAR_MODE_OFF);
 
@@ -459,7 +459,7 @@ void setup_scr_List_2(lv_ui *ui)
     ui->List_2_label_15 = lv_label_create(ui->List_2_cont_8);
     lv_label_set_text(ui->List_2_label_15, "Set\n");
     lv_label_set_long_mode(ui->List_2_label_15, LV_LABEL_LONG_WRAP);
-    lv_obj_set_pos(ui->List_2_label_15, 57, 9);
+    lv_obj_set_pos(ui->List_2_label_15, 52, 9);
     lv_obj_set_size(ui->List_2_label_15, 135, 18);
 
     //Write style for List_2_label_15, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
@@ -478,36 +478,12 @@ void setup_scr_List_2(lv_ui *ui)
     lv_obj_set_style_pad_left(ui->List_2_label_15, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_shadow_width(ui->List_2_label_15, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
 
-    //Write codes List_2_btn_2
-    ui->List_2_btn_2 = lv_btn_create(ui->List_2_cont_1);
-    ui->List_2_btn_2_label = lv_label_create(ui->List_2_btn_2);
-    lv_label_set_text(ui->List_2_btn_2_label, "+");
-    lv_label_set_long_mode(ui->List_2_btn_2_label, LV_LABEL_LONG_WRAP);
-    lv_obj_align(ui->List_2_btn_2_label, LV_ALIGN_CENTER, 0, 0);
-    lv_obj_set_style_pad_all(ui->List_2_btn_2, 0, LV_STATE_DEFAULT);
-    lv_obj_set_width(ui->List_2_btn_2_label, LV_PCT(100));
-    lv_obj_set_pos(ui->List_2_btn_2, 2, 382);
-    lv_obj_set_size(ui->List_2_btn_2, 215, 40);
-
-    //Write style for List_2_btn_2, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
-    lv_obj_set_style_border_width(ui->List_2_btn_2, 2, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_border_opa(ui->List_2_btn_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_border_color(ui->List_2_btn_2, lv_color_hex(0x2E2E2E), LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_border_side(ui->List_2_btn_2, LV_BORDER_SIDE_FULL, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_radius(ui->List_2_btn_2, 35, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_bg_opa(ui->List_2_btn_2, 102, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_bg_color(ui->List_2_btn_2, lv_color_hex(0x2E2E2E), LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_bg_grad_dir(ui->List_2_btn_2, LV_GRAD_DIR_NONE, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_shadow_width(ui->List_2_btn_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_text_color(ui->List_2_btn_2, lv_color_hex(0xffffff), LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_text_font(ui->List_2_btn_2, &lv_font_montserratMedium_16, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_text_opa(ui->List_2_btn_2, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_text_align(ui->List_2_btn_2, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN|LV_STATE_DEFAULT);
-
     //The custom code of List_2.
 
 
     //Update current screen layout.
     lv_obj_update_layout(ui->List_2);
 
+    //Init events for screen.
+    events_init_List_2(ui);
 }

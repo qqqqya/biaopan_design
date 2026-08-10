@@ -123,6 +123,8 @@ void clear_flage(lv_anim_t *a) {
 }
 // 如果所有项都已显示,隐藏添加按钮
 bool all_visible = true;
+static uint16_t level;
+uint16_t mode=0;
 
 static void screen_1_home_event_handler (lv_event_t *e)
 {
@@ -1100,13 +1102,270 @@ void events_init_List_1 (lv_ui *ui)
     lv_obj_add_event_cb(ui->List_1_btn_2, List_1_btn_2_event_handler, LV_EVENT_ALL, ui);
 }
 
+static void List_2_event_handler (lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    switch (code) {
+    case LV_EVENT_SCROLL:
+    {
+        lv_obj_t *scroll_container = lv_event_get_target(e);
+        int32_t scroll_y = lv_obj_get_scroll_y(scroll_container); // 当前滚动偏移量
+        if(scroll_y > 10) {                    // 前 40px 是"死区"，不响应变形
+            uint16_t get_y = scroll_y - 20;    // 去掉死区后的有效滚动距离
+            ///之前代码的宽度都是70，所以上面是70 40。我这里改成40的宽度之后，就是40的高度，之后就是40 20
+            level     = get_y / 40;            // 每 70px 划分为一个"级别/阶段"
+            uint16_t over_len  = get_y % 40;            // 在当前 70px 阶段内的进度（0 ~ 69）
+            uint16_t chage_width = (over_len * 240) / 40; // 将进度映射为宽度变化量（0 ~ 240）
+            switch(level) {
+            /* ============================================
+             * 阶段0：顶部项 cont_2 收缩，中间项 cont_5 展开
+             * ============================================ */
+            case 0:
+                lv_obj_set_width(guider_ui.List_2_cont_2, 300 - chage_width);
+                lv_obj_set_width(guider_ui.List_2_cont_5, chage_width);
+                lv_obj_set_width(guider_ui.List_2_cont_3, 240);
+                lv_obj_set_width(guider_ui.List_2_cont_4, 240);
+                lv_obj_set_width(guider_ui.List_2_cont_6, 240);
+                lv_obj_set_width(guider_ui.List_2_cont_7, 240);
+                lv_obj_set_width(guider_ui.List_2_cont_8, 240);
+                break;
+
+            /* ============================================
+             * 阶段1：cont_3 收缩，cont_6 展开
+             * ============================================ */
+            case 1:
+                lv_obj_set_width(guider_ui.List_2_cont_3, 320 - chage_width);
+                lv_obj_set_width(guider_ui.List_2_cont_6, chage_width);
+                lv_obj_set_width(guider_ui.List_2_cont_2, 240);
+                lv_obj_set_width(guider_ui.List_2_cont_4, 240);
+                lv_obj_set_width(guider_ui.List_2_cont_5, 240);
+                lv_obj_set_width(guider_ui.List_2_cont_7, 240);
+                lv_obj_set_width(guider_ui.List_2_cont_8, 240);
+                break;
+
+            /* ============================================
+             * 阶段2：cont_4 收缩，cont_7 展开
+             * ============================================ */
+            case 2:
+                lv_obj_set_width(guider_ui.List_2_cont_4, 320 - chage_width);
+                lv_obj_set_width(guider_ui.List_2_cont_7, chage_width + 30);
+                lv_obj_set_width(guider_ui.List_2_cont_2, 240);
+                lv_obj_set_width(guider_ui.List_2_cont_3, 240);
+                lv_obj_set_width(guider_ui.List_2_cont_5, 240);
+                lv_obj_set_width(guider_ui.List_2_cont_6, 240);
+                lv_obj_set_width(guider_ui.List_2_cont_8, 240);
+                break;
+
+            /* ============================================
+             * 阶段3：cont_5 收缩，cont_8 展开
+             * ============================================ */
+            case 3:
+                if((360 - chage_width) > 240) {
+                    lv_obj_set_width(guider_ui.List_2_cont_5, 240);
+                } else {
+                    lv_obj_set_width(guider_ui.List_2_cont_5, 360 - chage_width);
+                }
+                lv_obj_set_width(guider_ui.List_2_cont_8, chage_width + 30);
+                lv_obj_set_width(guider_ui.List_2_cont_2, 240);
+                lv_obj_set_width(guider_ui.List_2_cont_3, 240);
+                lv_obj_set_width(guider_ui.List_2_cont_4, 240);
+                lv_obj_set_width(guider_ui.List_2_cont_6, 240);
+                lv_obj_set_width(guider_ui.List_2_cont_7, 240);
+                break;
+
+            /* ============================================
+             * 阶段4：底部项 cont_8 收尾展开
+             * ============================================ */
+            case 4:
+                lv_obj_set_width(guider_ui.List_2_cont_8, chage_width + 52);
+                break;
+
+            default:
+                break;
+            }
+        }
+        // lv_obj_t *scroll_container = lv_event_get_target(e);
+        // int32_t scroll_y = lv_obj_get_scroll_y(scroll_container); // 获取滚动偏移量
+        // if(scroll_y>40){
+        // uint16_t get_y=(scroll_y-40);
+        // level=(get_y/70);
+        // uint16_t over_len=(get_y%70);
+        // uint16_t chage_width=(over_len*240)/70;
+        // switch(level){
+        //   case 0:
+        //   lv_obj_set_width(guider_ui.List_2_cont_8,300-chage_width);
+        //   lv_obj_set_width(guider_ui.List_2_cont_5,chage_width);
+        //   lv_obj_set_width(guider_ui.List_2_cont_3,240);
+        //   lv_obj_set_width(guider_ui.List_2_cont_4,240);
+        //   lv_obj_set_width(guider_ui.List_2_cont_6,240);
+        //   lv_obj_set_width(guider_ui.List_2_cont_7,240);
+
+        //   // lv_obj_set_height(guider_ui.List_2_cont_8,90-chage_width);
+        //   // lv_obj_set_height(guider_ui.List_2_cont_5,chage_width);
+        //   // lv_obj_set_height(guider_ui.List_2_cont_3,70);
+        //   // lv_obj_set_height(guider_ui.List_2_cont_4,70);
+        //   // lv_obj_set_height(guider_ui.List_2_cont_6,70);
+        //   // lv_obj_set_height(guider_ui.List_2_cont_7,70);
+
+        //   break;
+        //   case 1:
+        //   lv_obj_set_width(guider_ui.List_2_cont_7,320-chage_width);
+        //   lv_obj_set_width(guider_ui.List_2_cont_4,chage_width);
+        //        lv_obj_set_width(guider_ui.List_2_cont_3,240);
+        //    lv_obj_set_width(guider_ui.List_2_cont_5,240);
+        //     lv_obj_set_width(guider_ui.List_2_cont_6,240);
+        //      lv_obj_set_width(guider_ui.List_2_cont_8,240);
+
+        //   // lv_obj_set_height(guider_ui.List_2_cont_7,90-chage_width);
+        //   // lv_obj_set_height(guider_ui.List_2_cont_4,chage_width);
+        //   // lv_obj_set_height(guider_ui.List_2_cont_3,70);
+        //   // lv_obj_set_height(guider_ui.List_2_cont_5,70);
+        //   // lv_obj_set_height(guider_ui.List_2_cont_6,70);
+        //   // lv_obj_set_height(guider_ui.List_2_cont_8,70);
+        //   break;
+        //   case 2:
+        //   lv_obj_set_width(guider_ui.List_2_cont_6,320-chage_width);
+        //   lv_obj_set_width(guider_ui.List_2_cont_3,chage_width+30);
+        //   lv_obj_set_width(guider_ui.List_2_cont_5,240);
+        //    lv_obj_set_width(guider_ui.List_2_cont_4,240);
+        //     lv_obj_set_width(guider_ui.List_2_cont_8,240);
+        //      lv_obj_set_width(guider_ui.List_2_cont_7,240);
+
+        //   // lv_obj_set_height(guider_ui.List_2_cont_6,90-chage_width);
+        //   // lv_obj_set_height(guider_ui.List_2_cont_3,chage_width);
+        //   // lv_obj_set_height(guider_ui.List_2_cont_4,70);
+        //   // lv_obj_set_height(guider_ui.List_2_cont_5,70);
+        //   // lv_obj_set_height(guider_ui.List_2_cont_7,70);
+        //   // lv_obj_set_height(guider_ui.List_2_cont_8,70);
+        //   break;
+        //   case 3:
+
+
+        //         if((360-chage_width)>240){
+        //     lv_obj_set_width(guider_ui.List_2_cont_5,240);
+        //   }else{
+        //     lv_obj_set_width(guider_ui.List_2_cont_5,360-chage_width);
+        //   }
+
+        //   lv_obj_set_width(guider_ui.List_2_cont_2,chage_width+30);
+
+        //   lv_obj_set_width(guider_ui.List_2_cont_3,240);
+        //   lv_obj_set_width(guider_ui.List_2_cont_4,240);
+        //   lv_obj_set_width(guider_ui.List_2_cont_6,240);
+        //   lv_obj_set_width(guider_ui.List_2_cont_7,240);
+        //   break;
+        //   case 4:
+        //    lv_obj_set_width(guider_ui.List_2_cont_2,chage_width+52);
+        //   // lv_obj_set_height(guider_ui.List_2_cont_2,chage_width);
+        //   break;
+        //   default:
+        //   break;
+
+        // }
+
+        // }
+
+
+
+
+
+
+
+        break;
+    }
+    case LV_EVENT_SCROLL_END:
+    {
+
+        switch(level) {
+        case 0:
+            lv_obj_scroll_to_y(guider_ui.List_2,0,LV_ANIM_ON);
+            break;
+        case 1:
+            lv_obj_scroll_to_y(guider_ui.List_2,120,LV_ANIM_ON);
+            break;
+        case 2:
+            lv_obj_scroll_to_y(guider_ui.List_2,200,LV_ANIM_ON);
+            break;
+        case 3:
+            lv_obj_scroll_to_y(guider_ui.List_2,280,LV_ANIM_ON);
+            break;
+        case 4:
+            lv_obj_scroll_to_y(guider_ui.List_2,380,LV_ANIM_ON);
+            break;
+        }
+        break;
+    }
+    default:
+        break;
+    }
+}
+
+static void List_2_cont_8_event_handler (lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    switch (code) {
+    case LV_EVENT_CLICKED:
+    {
+        ui_load_scr_animation(&guider_ui, &guider_ui.Set, guider_ui.Set_del, &guider_ui.List_2_del, setup_scr_Set, LV_SCR_LOAD_ANIM_NONE, 200, 2, true, true);
+        break;
+    }
+    default:
+        break;
+    }
+}
+
+void events_init_List_2 (lv_ui *ui)
+{
+    lv_obj_add_event_cb(ui->List_2, List_2_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->List_2_cont_8, List_2_cont_8_event_handler, LV_EVENT_ALL, ui);
+}
+
 static void Set_cont_1_event_handler (lv_event_t *e)
 {
     lv_event_code_t code = lv_event_get_code(e);
     switch (code) {
     case LV_EVENT_CLICKED:
     {
+        mode=0;
+        break;
+    }
+    default:
+        break;
+    }
+}
 
+static void Set_btn_1_event_handler (lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    switch (code) {
+    case LV_EVENT_CLICKED:
+    {
+
+        switch(mode) {
+        case 0:
+            ui_load_scr_animation(&guider_ui, &guider_ui.List_1, guider_ui.List_1_del, &guider_ui.Set_del, setup_scr_List_1, LV_SCR_LOAD_ANIM_FADE_ON, 200, 200, true, true);
+            break;
+        case 1:
+            ui_load_scr_animation(&guider_ui, &guider_ui.List_2, guider_ui.List_2_del, &guider_ui.Set_del, setup_scr_List_2, LV_SCR_LOAD_ANIM_FADE_ON, 200, 200, true, true);
+            break;
+            // case 2:
+            //   ui_load_scr_animation(&guider_ui, &guider_ui.List_3, guider_ui.List_3_del, &guider_ui.Set_del, setup_scr_List_3, LV_SCR_LOAD_ANIM_FADE_ON, 200, 200, true, true);
+            // break;
+        }
+        break;
+    }
+    default:
+        break;
+    }
+}
+
+static void Set_cont_2_event_handler (lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    switch (code) {
+    case LV_EVENT_CLICKED:
+    {
+        mode=1;
         break;
     }
     default:
@@ -1117,6 +1376,8 @@ static void Set_cont_1_event_handler (lv_event_t *e)
 void events_init_Set (lv_ui *ui)
 {
     lv_obj_add_event_cb(ui->Set_cont_1, Set_cont_1_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->Set_btn_1, Set_btn_1_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->Set_cont_2, Set_cont_2_event_handler, LV_EVENT_ALL, ui);
 }
 
 static void heart_btn_1_event_handler (lv_event_t *e)

@@ -156,8 +156,6 @@ typedef struct
 	lv_obj_t *List_2_cont_8;
 	lv_obj_t *List_2_img_15;
 	lv_obj_t *List_2_label_15;
-	lv_obj_t *List_2_btn_2;
-	lv_obj_t *List_2_btn_2_label;
 	lv_obj_t *Set;
 	bool Set_del;
 	lv_obj_t *Set_label_1;
@@ -268,7 +266,7 @@ LV_IMG_DECLARE(_qrcode32x32_alpha_30x30);
 LV_IMG_DECLARE(_syteam32x32_alpha_30x30);
 LV_IMG_DECLARE(_weater32x32_alpha_30x30);
 LV_IMG_DECLARE(_set32x32_alpha_30x30);
-LV_IMG_DECLARE(_heart32x32_alpha_30x30);
+LV_IMG_DECLARE(_heart32x32_alpha_48x39);
 LV_IMG_DECLARE(_location32x32_alpha_30x30);
 LV_IMG_DECLARE(_NFC32x32_alpha_30x30);
 LV_IMG_DECLARE(_qrcode32x32_alpha_30x30);

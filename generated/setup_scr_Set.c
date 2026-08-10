@@ -118,7 +118,7 @@ void setup_scr_Set(lv_ui *ui)
 
     //Write codes Set_cont_2
     ui->Set_cont_2 = lv_obj_create(ui->Set);
-    lv_obj_set_pos(ui->Set_cont_2, 19, 134);
+    lv_obj_set_pos(ui->Set_cont_2, 19, 125);
     lv_obj_set_size(ui->Set_cont_2, 195, 51);
     lv_obj_set_scrollbar_mode(ui->Set_cont_2, LV_SCROLLBAR_MODE_OFF);
 
