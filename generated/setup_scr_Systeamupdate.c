@@ -32,7 +32,7 @@ void setup_scr_Systeamupdate(lv_ui *ui)
     ui->Systeamupdate_label_1 = lv_label_create(ui->Systeamupdate);
     lv_label_set_text(ui->Systeamupdate_label_1, "Sysupdate");
     lv_label_set_long_mode(ui->Systeamupdate_label_1, LV_LABEL_LONG_WRAP);
-    lv_obj_set_pos(ui->Systeamupdate_label_1, 70, 124);
+    lv_obj_set_pos(ui->Systeamupdate_label_1, 96, 83);
     lv_obj_set_size(ui->Systeamupdate_label_1, 100, 32);
 
     //Write style for Systeamupdate_label_1, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
@@ -71,6 +71,44 @@ void setup_scr_Systeamupdate(lv_ui *ui)
     lv_obj_set_style_text_font(ui->Systeamupdate_btn_1, &lv_font_montserratMedium_16, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_text_opa(ui->Systeamupdate_btn_1, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_text_align(ui->Systeamupdate_btn_1, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN|LV_STATE_DEFAULT);
+
+    //Write codes Systeamupdate_img_1
+    ui->Systeamupdate_img_1 = lv_img_create(ui->Systeamupdate);
+    lv_obj_add_flag(ui->Systeamupdate_img_1, LV_OBJ_FLAG_CLICKABLE);
+    lv_img_set_src(ui->Systeamupdate_img_1, &_syteam32x32_alpha_40x40);
+    lv_img_set_pivot(ui->Systeamupdate_img_1, 50,50);
+    lv_img_set_angle(ui->Systeamupdate_img_1, 0);
+    lv_obj_set_pos(ui->Systeamupdate_img_1, 44, 72);
+    lv_obj_set_size(ui->Systeamupdate_img_1, 40, 40);
+
+    //Write style for Systeamupdate_img_1, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
+    lv_obj_set_style_img_recolor_opa(ui->Systeamupdate_img_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_img_opa(ui->Systeamupdate_img_1, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_radius(ui->Systeamupdate_img_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_clip_corner(ui->Systeamupdate_img_1, true, LV_PART_MAIN|LV_STATE_DEFAULT);
+
+    //Write codes Systeamupdate_btn_2
+    ui->Systeamupdate_btn_2 = lv_btn_create(ui->Systeamupdate);
+    ui->Systeamupdate_btn_2_label = lv_label_create(ui->Systeamupdate_btn_2);
+    lv_label_set_text(ui->Systeamupdate_btn_2_label, "版本检测");
+    lv_label_set_long_mode(ui->Systeamupdate_btn_2_label, LV_LABEL_LONG_WRAP);
+    lv_obj_align(ui->Systeamupdate_btn_2_label, LV_ALIGN_CENTER, 0, 0);
+    lv_obj_set_style_pad_all(ui->Systeamupdate_btn_2, 0, LV_STATE_DEFAULT);
+    lv_obj_set_width(ui->Systeamupdate_btn_2_label, LV_PCT(100));
+    lv_obj_set_pos(ui->Systeamupdate_btn_2, 59, 160);
+    lv_obj_set_size(ui->Systeamupdate_btn_2, 132, 57);
+
+    //Write style for Systeamupdate_btn_2, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
+    lv_obj_set_style_bg_opa(ui->Systeamupdate_btn_2, 122, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_color(ui->Systeamupdate_btn_2, lv_color_hex(0x2e2e22), LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_grad_dir(ui->Systeamupdate_btn_2, LV_GRAD_DIR_NONE, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_border_width(ui->Systeamupdate_btn_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_radius(ui->Systeamupdate_btn_2, 16, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_shadow_width(ui->Systeamupdate_btn_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_color(ui->Systeamupdate_btn_2, lv_color_hex(0xffffff), LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_font(ui->Systeamupdate_btn_2, &lv_font_SourceHanSerifSC_Regular_16, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_opa(ui->Systeamupdate_btn_2, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_align(ui->Systeamupdate_btn_2, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN|LV_STATE_DEFAULT);
 
     //The custom code of Systeamupdate.
 

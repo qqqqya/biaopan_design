@@ -89,6 +89,7 @@ void init_scr_del_flag(lv_ui *ui)
     ui->Map_del = true;
     ui->QRcode_del = true;
     ui->Systeamupdate_del = true;
+    ui->Systeamupdate_check_del = true;
 }
 
 void setup_ui(lv_ui *ui)

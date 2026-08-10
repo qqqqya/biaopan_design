@@ -32,6 +32,7 @@ void events_init_NFC(lv_ui *ui);
 void events_init_Map(lv_ui *ui);
 void events_init_QRcode(lv_ui *ui);
 void events_init_Systeamupdate(lv_ui *ui);
+void events_init_Systeamupdate_check(lv_ui *ui);
 
 #ifdef __cplusplus
 }

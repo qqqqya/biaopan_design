@@ -1988,9 +1988,58 @@ static void Systeamupdate_btn_1_event_handler (lv_event_t *e)
     }
 }
 
+static void Systeamupdate_btn_2_event_handler (lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    switch (code) {
+    case LV_EVENT_CLICKED:
+    {
+        ui_load_scr_animation(&guider_ui, &guider_ui.Systeamupdate_check, guider_ui.Systeamupdate_check_del, &guider_ui.Systeamupdate_del, setup_scr_Systeamupdate_check, LV_SCR_LOAD_ANIM_NONE, 200, 2, true, true);
+        break;
+    }
+    default:
+        break;
+    }
+}
+
 void events_init_Systeamupdate (lv_ui *ui)
 {
     lv_obj_add_event_cb(ui->Systeamupdate_btn_1, Systeamupdate_btn_1_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->Systeamupdate_btn_2, Systeamupdate_btn_2_event_handler, LV_EVENT_ALL, ui);
+}
+
+static void Systeamupdate_check_btn_1_event_handler (lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    switch (code) {
+    case LV_EVENT_CLICKED:
+    {
+        ui_load_scr_animation(&guider_ui, &guider_ui.Systeamupdate, guider_ui.Systeamupdate_del, &guider_ui.Systeamupdate_check_del, setup_scr_Systeamupdate, LV_SCR_LOAD_ANIM_NONE, 200, 2, true, false);
+        break;
+    }
+    default:
+        break;
+    }
+}
+
+static void Systeamupdate_check_btn_2_event_handler (lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    switch (code) {
+    case LV_EVENT_CLICKED:
+    {
+
+        break;
+    }
+    default:
+        break;
+    }
+}
+
+void events_init_Systeamupdate_check (lv_ui *ui)
+{
+    lv_obj_add_event_cb(ui->Systeamupdate_check_btn_1, Systeamupdate_check_btn_1_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->Systeamupdate_check_btn_2, Systeamupdate_check_btn_2_event_handler, LV_EVENT_ALL, ui);
 }
 
 

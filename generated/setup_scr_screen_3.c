@@ -524,6 +524,7 @@ void setup_scr_screen_3(lv_ui *ui)
     lv_obj_set_size(ui->screen_3_cont_2, 240, 280);
     lv_obj_set_scrollbar_mode(ui->screen_3_cont_2, LV_SCROLLBAR_MODE_OFF);
     lv_obj_add_flag(ui->screen_3_cont_2, LV_OBJ_FLAG_HIDDEN);
+    lv_obj_add_flag(ui->screen_3_cont_2, LV_OBJ_FLAG_HIDDEN);
 
     //Write style for screen_3_cont_2, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
     lv_obj_set_style_border_width(ui->screen_3_cont_2, 2, LV_PART_MAIN|LV_STATE_DEFAULT);

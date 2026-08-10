@@ -206,6 +206,16 @@ typedef struct
 	lv_obj_t *Systeamupdate_label_1;
 	lv_obj_t *Systeamupdate_btn_1;
 	lv_obj_t *Systeamupdate_btn_1_label;
+	lv_obj_t *Systeamupdate_img_1;
+	lv_obj_t *Systeamupdate_btn_2;
+	lv_obj_t *Systeamupdate_btn_2_label;
+	lv_obj_t *Systeamupdate_check;
+	bool Systeamupdate_check_del;
+	lv_obj_t *Systeamupdate_check_label_1;
+	lv_obj_t *Systeamupdate_check_btn_1;
+	lv_obj_t *Systeamupdate_check_btn_1_label;
+	lv_obj_t *Systeamupdate_check_btn_2;
+	lv_obj_t *Systeamupdate_check_btn_2_label;
 }lv_ui;
 
 typedef void (*ui_setup_scr_t)(lv_ui * ui);
@@ -243,6 +253,7 @@ void setup_scr_NFC(lv_ui *ui);
 void setup_scr_Map(lv_ui *ui);
 void setup_scr_QRcode(lv_ui *ui);
 void setup_scr_Systeamupdate(lv_ui *ui);
+void setup_scr_Systeamupdate_check(lv_ui *ui);
 
 LV_IMG_DECLARE(_biaopan1_200x200);
 LV_IMG_DECLARE(_Ellipse_alpha_26x30);
@@ -305,6 +316,7 @@ LV_IMG_DECLARE(_NFC32x32_alpha_30x30);
 LV_IMG_DECLARE(_location32x32_alpha_30x30);
 
 LV_IMG_DECLARE(_ZNZ_100x100);
+LV_IMG_DECLARE(_syteam32x32_alpha_40x40);
 
 LV_FONT_DECLARE(lv_font_montserratMedium_12)
 LV_FONT_DECLARE(lv_font_montserratMedium_16)
@@ -312,6 +324,7 @@ LV_FONT_DECLARE(lv_font_SourceHanSerifSC_Regular_16)
 LV_FONT_DECLARE(lv_font_montserratMedium_25)
 LV_FONT_DECLARE(lv_font_interttf_82)
 LV_FONT_DECLARE(lv_font_interttf_28)
+LV_FONT_DECLARE(lv_font_montserratMedium_26)
 
 
 #ifdef __cplusplus
